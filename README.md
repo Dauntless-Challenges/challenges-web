@@ -1,3 +1,1 @@
 # Dauntless Challenges
-
----------
