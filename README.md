@@ -25,8 +25,16 @@ We are currently in **Development stage** of the project, opened to all contribu
 
 You'll have to have **PHP 5.6** service to run the code managing the logics of our website. We don't plan to upgrade our PHP yet.
 
+We recommend to have some Server installed on your PC, like [XAMPP](https://www.apachefriends.org/index.html), where you can launch multiple servers.
+
 -----
 
 ## Installation
 
-WIP
+Deployment of our project is pretty easy! :seedling:
+
+1. Download our Project and Unzip it right after :zap:
+2. Open your SQL Server Extension (Like [PHPMyAdmin](https://www.phpmyadmin.net/)) 
+3. Launch the script `./[sql]/dauntless-challenges.sql` :volcano:
+4. Set the Administrator login details for the Database
+5. Open `./inc.php` and fill in the username and password of the Administrator account
