@@ -1,9 +1,22 @@
 language: php
 
 php: 
-	#Alias to PHP 5.6.X
-	- 5.6
-	
+#Alias to PHP 5.6.X
+- 5.6
+
+jobs:
+  include:
+    - script: echo "Running unit tests (1)"
+    - script: echo "Running unit tests (2)"
+    - stage: GitHub Release
+      script: echo "Deploying to GitHub releases ..."
+      deploy:
+        provider: releases
+        api_key: " e3b8006f6fb02e99c0da528cfcffa33242e4a485 "
+        skip_cleanup: true
+        on:
+          tags: true
+
 deploy:
   provider: pages
   skip-cleanup: true
