@@ -1,17 +1,17 @@
 # Welcome to **Dauntless Challenges Github** :star2:
 
-[![Build Status](https://travis-ci.com/EriiYenn/challenges-web.svg?branch=master)](https://travis-ci.com/EriiYenn/challenges-web) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/Dauntless-Challenges/challenges-web/blob/master/LICENSE.md) 
-
-[![Website dauntless-challenges.com](https://img.shields.io/website-up-down-green-red/https/dauntless-challenges.com.svg)](https://dauntless-challenges.com) [![HitCount](http://hits.dwyl.io/Dauntless_Challenges/challenges-web.svg)](http://hits.dwyl.io/Dauntless_Challenges/challenges-web) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-%233399ff.svg)](https://github.com/Dauntless-Challenges/challenges-web/issues) [![stage developement](https://img.shields.io/badge/stage-development-%239933ff.svg)](https://github.com/Dauntless-Challenges/challenges-web/commits/master)
-
-
-
 Founded in July 2018 by these lads:
 - **EriiYenn** :snowflake:
 - **Syraleaf** :zap:
 - **RiddleX** :question:
 
 -----
+
+[![Build Status](https://travis-ci.com/EriiYenn/challenges-web.svg?branch=master)](https://travis-ci.com/EriiYenn/challenges-web) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/Dauntless-Challenges/challenges-web/blob/master/LICENSE.md) 
+
+[![Website dauntless-challenges.com](https://img.shields.io/website-up-down-green-red/https/dauntless-challenges.com.svg)](https://dauntless-challenges.com) [![HitCount](http://hits.dwyl.io/Dauntless_Challenges/challenges-web.svg)](http://hits.dwyl.io/Dauntless_Challenges/challenges-web) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-%233399ff.svg)](https://github.com/Dauntless-Challenges/challenges-web/issues) [![stage developement](https://img.shields.io/badge/stage-development-%239933ff.svg)](https://github.com/Dauntless-Challenges/challenges-web/commits/master)
+
+
 
 ## Collaboration
 
