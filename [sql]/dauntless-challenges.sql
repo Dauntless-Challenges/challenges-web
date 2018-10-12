@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Počítač: 127.0.0.1
--- Vytvořeno: Čtv 11. říj 2018, 15:49
--- Verze serveru: 10.1.36-MariaDB
--- Verze PHP: 5.6.38
+-- PC: 127.0.0.1
+-- Created: Čtv 11. říj 2018, 15:49
+-- Server Version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Databáze: `dauntless-challenges`
+-- Database: `dauntless-challenges`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `badges`
+-- Structure of table `badges`
 --
 
 CREATE TABLE `badges` (
@@ -37,7 +37,7 @@ CREATE TABLE `badges` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Vypisuji data pro tabulku `badges`
+-- Filling table `badges`
 --
 
 INSERT INTO `badges` (`id_badge`, `name`, `image`, `exp`, `note`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `badges` (`id_badge`, `name`, `image`, `exp`, `note`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `difficulties`
+-- Structure of table `difficulties`
 --
 
 CREATE TABLE `difficulties` (
@@ -69,7 +69,7 @@ CREATE TABLE `difficulties` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `guilds`
+-- Structure of table `guilds`
 --
 
 CREATE TABLE `guilds` (
@@ -80,7 +80,7 @@ CREATE TABLE `guilds` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Vypisuji data pro tabulku `guilds`
+-- Filling table `guilds`
 --
 
 INSERT INTO `guilds` (`id_guild`, `name`, `shortcut`, `note`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `guilds` (`id_guild`, `name`, `shortcut`, `note`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `parties`
+-- Structure of table `parties`
 --
 
 CREATE TABLE `parties` (
@@ -114,7 +114,7 @@ CREATE TABLE `parties` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `profiles`
+-- Structure of table `profiles`
 --
 
 CREATE TABLE `profiles` (
@@ -134,7 +134,7 @@ CREATE TABLE `profiles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Vypisuji data pro tabulku `profiles`
+-- Filling table `profiles`
 --
 
 INSERT INTO `profiles` (`id_profile`, `id_user`, `id_guild`, `id_title`, `id_challenge`, `id_weapon`, `id_badge`, `exp`, `ch_done`, `sp_board`, `date`, `public`, `note`) VALUES
@@ -144,7 +144,7 @@ INSERT INTO `profiles` (`id_profile`, `id_user`, `id_guild`, `id_title`, `id_cha
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `runs`
+-- Structure of table `runs`
 --
 
 CREATE TABLE `runs` (
@@ -156,7 +156,7 @@ CREATE TABLE `runs` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `titles`
+-- Structure of table `titles`
 --
 
 CREATE TABLE `titles` (
@@ -166,7 +166,7 @@ CREATE TABLE `titles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Vypisuji data pro tabulku `titles`
+-- Filling table `titles`
 --
 
 INSERT INTO `titles` (`id_title`, `name`, `note`) VALUES
@@ -182,7 +182,7 @@ INSERT INTO `titles` (`id_title`, `name`, `note`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `users`
+-- Structure of table `users`
 --
 
 CREATE TABLE `users` (
@@ -195,7 +195,7 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Vypisuji data pro tabulku `users`
+-- Filling table `users`
 --
 
 INSERT INTO `users` (`id_user`, `name`, `email`, `password`, `permission`, `note`) VALUES
@@ -206,7 +206,7 @@ INSERT INTO `users` (`id_user`, `name`, `email`, `password`, `permission`, `note
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `weapons`
+-- Structure of table `weapons`
 --
 
 CREATE TABLE `weapons` (
@@ -217,7 +217,7 @@ CREATE TABLE `weapons` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Vypisuji data pro tabulku `weapons`
+-- Filling table `weapons`
 --
 
 INSERT INTO `weapons` (`id_weapon`, `type`, `img`, `note`) VALUES
@@ -351,117 +351,117 @@ INSERT INTO `weapons` (`id_weapon`, `type`, `img`, `note`) VALUES
 (231, 'Molten Edict', '', 'Obtained from Firebrand hunts or patrols on Maelstrom');
 
 --
--- Klíče pro exportované tabulky
+-- Keys for exported tables
 --
 
 --
--- Klíče pro tabulku `badges`
+-- Keys for table `badges`
 --
 ALTER TABLE `badges`
   ADD PRIMARY KEY (`id_badge`);
 
 --
--- Klíče pro tabulku `difficulties`
+-- Keys for table `difficulties`
 --
 ALTER TABLE `difficulties`
   ADD PRIMARY KEY (`id_difficulty`);
 
 --
--- Klíče pro tabulku `guilds`
+-- Keys for table `guilds`
 --
 ALTER TABLE `guilds`
   ADD PRIMARY KEY (`id_guild`);
 
 --
--- Klíče pro tabulku `parties`
+-- Keys for table `parties`
 --
 ALTER TABLE `parties`
   ADD PRIMARY KEY (`id_party`);
 
 --
--- Klíče pro tabulku `profiles`
+-- Keys for table `profiles`
 --
 ALTER TABLE `profiles`
   ADD PRIMARY KEY (`id_profile`);
 
 --
--- Klíče pro tabulku `runs`
+-- Keys for table `runs`
 --
 ALTER TABLE `runs`
   ADD PRIMARY KEY (`id_run`);
 
 --
--- Klíče pro tabulku `titles`
+-- Keys for table `titles`
 --
 ALTER TABLE `titles`
   ADD PRIMARY KEY (`id_title`);
 
 --
--- Klíče pro tabulku `users`
+-- Keys for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Klíče pro tabulku `weapons`
+-- Keys for table `weapons`
 --
 ALTER TABLE `weapons`
   ADD PRIMARY KEY (`id_weapon`);
 
 --
--- AUTO_INCREMENT pro tabulky
+-- AUTO_INCREMENT for tables
 --
 
 --
--- AUTO_INCREMENT pro tabulku `badges`
+-- AUTO_INCREMENT for table `badges`
 --
 ALTER TABLE `badges`
   MODIFY `id_badge` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT pro tabulku `difficulties`
+-- AUTO_INCREMENT for table `difficulties`
 --
 ALTER TABLE `difficulties`
   MODIFY `id_difficulty` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pro tabulku `guilds`
+-- AUTO_INCREMENT for table `guilds`
 --
 ALTER TABLE `guilds`
   MODIFY `id_guild` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT pro tabulku `parties`
+-- AUTO_INCREMENT for table `parties`
 --
 ALTER TABLE `parties`
   MODIFY `id_party` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pro tabulku `profiles`
+-- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
   MODIFY `id_profile` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pro tabulku `runs`
+-- AUTO_INCREMENT for table `runs`
 --
 ALTER TABLE `runs`
   MODIFY `id_run` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pro tabulku `titles`
+-- AUTO_INCREMENT for table `titles`
 --
 ALTER TABLE `titles`
   MODIFY `id_title` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pro tabulku `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pro tabulku `weapons`
+-- AUTO_INCREMENT for table `weapons`
 --
 ALTER TABLE `weapons`
   MODIFY `id_weapon` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;

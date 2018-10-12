@@ -5,11 +5,22 @@ session_start();
 
 require_once 'inc.php';
 
+
+// ------------------------------
+
+
+// Start of Page with some functions
+
 html_head("Profile Page");
 
 navbar();
 HelpButton();
 
+
+// ------------------------------
+
+
+// If User isn't logged => Access denied | else show the code
 
 if($_SESSION['user'] == "") {
 access();
@@ -18,6 +29,11 @@ access();
 
 pageFade();
 
+
+// ------------------------------
+
+
+// Connection to DB and selecting profiles table by UserID
 
 $conn = connect_db();
 
@@ -30,6 +46,12 @@ mysqli_close($conn);
 
 
 echo "<body class='bgimg_index_logged'>";
+
+
+// ------------------------------
+
+
+// Start of HTML Code with PHP array variables from the Select Query
 
 ?>
 
