@@ -1,5 +1,12 @@
 <?php 
 
+
+/*
+ * If User isn't logged => redirect to Landing Page
+ * If User is logged with no Session => redirect to Login Page
+ * On logout unset and destroy sessions => redirect to Login Page
+*/
+
 session_start();
 
  if (!isset($_SESSION['user'])) {

@@ -14,6 +14,7 @@ $pass_hash = 'sha512';
 
 
 
+// Declaration of variables before usage
 
 $nameError = "";
 $passError = "";
@@ -23,8 +24,14 @@ $passLogError = "";
 
 $conn = "";
 
+
+// ------------------------------
+
+
 require_once 'inc.php';
 
+
+// If User is logged => redirect to tavern.php and announce it
 
  if ( isset($_SESSION['user']) != "" ) {
   $_SESSION['logged'] = 1;
@@ -32,6 +39,12 @@ require_once 'inc.php';
   echo "<meta http-equiv='refresh' content='0; url=tavern.php'>";
   exit;
  }
+
+
+// ------------------------------
+
+
+// Registration PHP function [Not functional for now]
 
  $error = false;
  
@@ -102,6 +115,12 @@ swal({
  }
  
  }
+
+
+// ------------------------------
+
+
+// Login PHP function
  
  if( isset($_POST['Login']) ) { 
   
@@ -152,13 +171,25 @@ swal({
  }
 
 
+
+
+ // ------------------------------
+
+
+// Start of Page with few functions
+
 html_head("Challenges Login");
 
-navbar();
+navbar('bgimg_login');
 HelpButton();
 
 pageFade();
 
+
+// ------------------------------
+
+
+// If User is logged out => announce it
 
 if(isset($_SESSION['logout']) && $_SESSION['logout'] == 1) {
 ?>
@@ -178,11 +209,13 @@ $_SESSION['logout'] = 0;
 
 ?>
 
-<body class="bgimg_login">
+
+<!-- ------------------------------
+
+
+Start of HTML code with some PHP -->
 
 <div class="LoginBox w3-row w3-display-middle w3-container">
-
-<?php //echo hash('sha512', ""); ?>
 
 <div class='w3-col l5 w3-container' style='width: 45%;'>
 <p class='w3-center' style="font-size: 2vw; margin-top: 0;">New Slayer</p>

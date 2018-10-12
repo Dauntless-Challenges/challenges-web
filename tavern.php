@@ -5,11 +5,22 @@ session_start();
 
 require_once 'inc.php';
 
+
+// ------------------------------
+
+
+// Start of Page with some functions
+
 html_head("Challenges Crossroads");
 
-navbar();
+navbar('bgimg_index_logged');
 HelpButton();
 
+
+// ------------------------------
+
+
+// If User is logged => get his name an announce it as pop-up
 
 if($_SESSION['user'] == "") {
 access();
@@ -23,8 +34,8 @@ access();
 
 pageFade();
 
-
-echo "<body class='bgimg_index_logged'>";
+// Pop up |
+//        V
     
 if($_SESSION['log'] == 1)
 {
@@ -42,6 +53,13 @@ swal({
 <?php
 $_SESSION['log'] = 0;
 }
+
+
+// ------------------------------
+
+
+// Start of HTML Code with Javascript function on Admin Features
+
 
 ?>
 

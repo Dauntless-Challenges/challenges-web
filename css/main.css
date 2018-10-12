@@ -1,3 +1,5 @@
+/* Navigation Bar style */
+
 .web-bar {
    border-radius: 50px;
    
@@ -8,6 +10,12 @@
    margin-right: auto;
    margin-top: 25px;
 }
+
+
+/* ------------------------------ */
+
+
+/* Custom Fonts */
 
 .Oswald {
    font-family: "Oswald";
@@ -22,8 +30,10 @@
 }
 
 
+/* ------------------------------ */
 
 
+/* Brand Colors */
 
 .brand-dark-blue {
     background-color: #1C2533;
@@ -43,8 +53,10 @@
 
 
 
+/* ------------------------------ */
 
 
+/* Custom CSS for Elements */
 
 .web-jumbo {
         font-size: 96px;
@@ -84,14 +96,10 @@
 }
 
 
+/* ------------------------------ */
 
 
-
-
-
-
-
-
+/* Box Styles */
 
 .PaperBox {
     background-image: url("../images/old_paper.png");
@@ -262,17 +270,10 @@
 }
 
 
+/* ------------------------------ */
 
 
-
-
-
-
-
-
-
-
-
+/* Background Styles */
 
 @media only screen and (max-width:600px){
   .bgimg_index {
@@ -341,11 +342,10 @@
 }
 
 
+/* ------------------------------ */
 
 
-
-
-
+/* ID Styles and CSS Animations */
 
 #badge {
     opacity: 0;

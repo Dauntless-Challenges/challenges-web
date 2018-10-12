@@ -7,14 +7,12 @@ require_once 'inc.php';
 
 html_head("Support Us");
 
-navbar();
+navbar('bgimg_support');
 HelpButton();
 
 
 pageFade();
 
-
-echo "<body class='bgimg_support'>";
 
 ?>
 
@@ -34,6 +32,7 @@ echo "<body class='bgimg_support'>";
     </div>
     </div>
     
+		<!-- This Function is <p id="DonateText"> related -->
         <?php //echo Donor(); ?>
 </div>
 

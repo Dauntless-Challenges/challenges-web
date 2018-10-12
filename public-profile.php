@@ -5,14 +5,25 @@ session_start();
 
 require_once 'inc.php';
 
+
+// ------------------------------
+
+
+// Start of Page with some functions
+
 html_head("Public Profile Page");
 
-navbar();
+navbar('bgimg_public_profile');
 HelpButton();
 
 
 pageFade();
 
+
+// ------------------------------
+
+
+// Get of the entered user and selecting rws form Database
 
 $user = $_GET['public-user'];
 
@@ -26,9 +37,14 @@ if($result != "") $row = mysqli_fetch_array($result, MYSQL_ASSOC);
 mysqli_close($conn);
 
 
-echo "<body class='bgimg_public_profile'>";
+// ------------------------------
 
 
+/* First logical operations as result from the SQL Query
+ * If there's no match => User not found!
+ * If User's profile isnt Public => Hidden!
+ * If there's a match => Show of the Profile!
+*/
 
 if (!isset($row)) { ?>
 
@@ -69,9 +85,17 @@ if (!isset($row)) { ?>
     
     <div class="w3-row">
         <div class="w3-col l5" style="margin-top: -1%;">
+
+
+		<!-- ------------------------------
+		
+
+		If User is an Admin => Change the badge to Dev Badge 
+		Else => show User's Badge -->
+
             <?php if(getUserPerm($row['id_user']) == 1) { ?>
             <p class="w3-center" style="font-size: 1vw;">Developers Team</p>
-            <img src="https://d1973c4qjhao9m.cloudfront.net/patches/backenddev_253x292.png" width="90%" style="margin-left: 5%;" />
+            <img src="images/dev.png" width="90%" style="margin-left: 5%;" />
         </div>
         
         <p class="w3-col l1"> </p>
