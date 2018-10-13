@@ -220,7 +220,7 @@ CREATE TABLE `weapons` (
 -- Filling table `weapons`
 --
 
-INSERT INTO `weapons` (`id_weapon`, `type`, `img`, `note`) VALUES
+INSERT INTO `weapons` (`id_weapon`, `name`, `img`, `note`) VALUES
 (1, 'Bloodfire Axe', '', 'Obtained from Bloodfire Embermane'),
 (2, 'Charrcutter', '', 'Obtained from Charrogg'),
 (3, 'Deadeye Axe', '', 'Obtained from Deadeye'),
