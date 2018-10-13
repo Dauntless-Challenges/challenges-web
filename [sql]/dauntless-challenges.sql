@@ -61,7 +61,7 @@ INSERT INTO `badges` (`id_badge`, `name`, `image`, `exp`, `note`) VALUES
 
 CREATE TABLE `difficulties` (
   `id_difficulty` int(10) UNSIGNED NOT NULL,
-  `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -107,7 +107,7 @@ INSERT INTO `guilds` (`id_guild`, `name`, `shortcut`, `note`) VALUES
 
 CREATE TABLE `parties` (
   `id_party` int(10) UNSIGNED NOT NULL,
-  `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -149,7 +149,7 @@ INSERT INTO `profiles` (`id_profile`, `id_user`, `id_guild`, `id_title`, `id_cha
 
 CREATE TABLE `runs` (
   `id_run` int(10) UNSIGNED NOT NULL,
-  `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -211,7 +211,7 @@ INSERT INTO `users` (`id_user`, `name`, `email`, `password`, `permission`, `note
 
 CREATE TABLE `weapons` (
   `id_weapon` int(10) UNSIGNED NOT NULL,
-  `type` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -22,7 +22,7 @@ HelpButton();
 
 // If User is logged => get his name an announce it as pop-up
 
-if($_SESSION['user'] == "") {
+if( !isset($_SESSION['user']) ) {
 access();
 } else {
 // select loggedin users detail
@@ -70,7 +70,7 @@ $_SESSION['log'] = 0;
 
 <p>- Challenges</p>
 
-<p>- Speedrunning</p>
+<p>- Speedrunning UwU</p>
 
 <form method="post" action="profile.php" style="margin-left: -12%;"><input type="hidden" name="user" value="<?php echo $_SESSION['user']; ?>"><input type="submit" class="w3-btn w3-transparent w3-round-large w3-text-black" style="padding: 0 22%; margin-left: 9%;" value="- Profile Page" /></form>
 

@@ -13,7 +13,7 @@ require_once 'inc.php';
 
 html_head("Profile Page");
 
-navbar();
+navbar('bgimg_index_logged');
 HelpButton();
 
 
@@ -22,7 +22,7 @@ HelpButton();
 
 // If User isn't logged => Access denied | else show the code
 
-if($_SESSION['user'] == "") {
+if( !isset($_SESSION['user']) ) {
 access();
 } else {
 
@@ -44,8 +44,6 @@ $row = mysqli_fetch_array($result, MYSQL_ASSOC);
 
 mysqli_close($conn);
 
-
-echo "<body class='bgimg_index_logged'>";
 
 
 // ------------------------------

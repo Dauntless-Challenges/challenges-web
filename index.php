@@ -6,7 +6,7 @@ session_start();
 
 // If User is logged => redirect to tavern.php and announce it
 
- if ( isset($_SESSION['user']) != "" ) {
+ if ( isset($_SESSION['user']) ) {
   $_SESSION['logged'] = 1;
   header("Location: tavern.php");
   echo "<meta http-equiv='refresh' content='0; url=tavern.php'>";
