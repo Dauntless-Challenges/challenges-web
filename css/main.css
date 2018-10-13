@@ -48,7 +48,7 @@
 }
 
 .brand-red {
-    background: #b30000 !important;
+    background: #aa0909 !important;
 }
 
 
@@ -203,7 +203,7 @@
 
 
 .NewSBox {
-    background-image: url("images/registerBox.jpg");
+    background-image: url("../images/registerBox.jpg");
     background-size: cover;
     
     width: 100%;
@@ -220,7 +220,7 @@
 }
 
 .ReturnSBox {
-    background-image: url("images/loginBox.jpg");
+    background-image: url("../images/loginBox.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
