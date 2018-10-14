@@ -92,7 +92,7 @@ $noteValue = 255 - strlen($set['note']);
 
 	<div style="margin-left: 30%; margin-top: -4%;">
 	<b><label for="name" style="font-size: 1.5vw;">Run Type Name: </label></b>
-	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." value="<?php echo $set['name']; ?>" name="name" id="name" style="width: 30%; max-width: 40%; font-size: 1.25vw;" />
+	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." value="<?php echo $set['name']; ?>" name="name" id="name" style="width: 30%; max-width: 40%; font-size: 1.25vw;" required />
 	
 	<div style="margin-top: 5%;">
 	<b><label for="note" class="w3-text-light-grey" style="font-size: 2vw;">Run Type Description: </label></b><br />
