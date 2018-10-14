@@ -20,8 +20,8 @@ function connect_db()
 {
 
 // IMPORTANT TO SET TO CONNECT TO DB
-$dbUsername = "";
-$dbPassword = "";
+$dbUsername = "admin";
+$dbPassword = "Ts4cYCaTnaUQGzd6";
 
 // DATABASE
  $dbhost = 'localhost';
@@ -57,6 +57,7 @@ function Help() {
 
 
 <div class='w3-display-bottomright' style='margin-right: 2%; margin-bottom: 2%;'>
+
 <div class="w3-container w3-card-2 w3-padding brand-dark-blue w3-round-large" id="HelpMenu" style="display: none; position: absolute; bottom: 100%; right: 4%;">
     <ul class="w3-ul w3-small w3-center w3-text-white">
         <li class="w3-padding">Ticket</li>
@@ -67,6 +68,8 @@ function Help() {
 
 <button class="w3-btn w3-transparent w3-xxxlarge fa fa-question-circle-o w3-text-white" style="border-radius: 50%; position: relative;" onclick="Help();"></button>
 </div>
+
+<a href="https://github.com/Dauntless-Challenges" class="w3-display-bottommiddle fa fa-github w3-xxxlarge w3-text-white" style="text-decoration: none; margin-bottom: 2%;" target="_blank"></a>
 
 END;
 }

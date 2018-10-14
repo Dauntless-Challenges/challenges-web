@@ -76,11 +76,11 @@ if ($res) {
 
 	<div class="w3-half" style="padding-left: 25%;">
 	<b><label for="name" style="font-size: 1.5vw;">Guild Name: </label></b>
-	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." name="name" id="name" style="width: 70%; max-width: 90%; font-size: 1.25vw;" />
+	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." name="name" id="name" style="width: 70%; max-width: 90%; font-size: 1.25vw;" required />
 
 	<br /><br />
 	<b><label for="short" style="font-size: 1.5vw;">Guild Shortcut: </label></b>
-	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Image Link..." name="short" id="short" style="width: 70%; max-width: 90%; font-size: 1.25vw;" />
+	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Image Link..." name="short" id="short" style="width: 70%; max-width: 90%; font-size: 1.25vw;" required />
 	</div>
 	
 	<div class="w3-half" style="padding-left: 5%;">

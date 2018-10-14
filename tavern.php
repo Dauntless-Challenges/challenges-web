@@ -112,9 +112,9 @@ $_SESSION['log'] = 0;
     </div>
     <div class="w3-row" style="margin-top: 4%;">
         <p class="w3-col l2"> </p>
-        <button class="w3-col l3 w3-btn w3-transparent w3-round-large w3-xxxlarge w3-border w3-border-white w3-padding-large w3-hover-teal">Challenges</button>
+        <a href="challenges-set.php" class="w3-col l3 w3-btn w3-transparent w3-round-large w3-xxxlarge w3-border w3-border-white w3-padding-large w3-hover-teal">Challenges</a>
         <p class="w3-col l2"> </p>
-        <button class="w3-col l3 w3-btn w3-transparent w3-round-large w3-xxxlarge w3-border w3-border-white w3-padding-large w3-hover-teal">Profiles</button>
+        <a href="#" class="w3-col l3 w3-btn w3-transparent w3-round-large w3-xxxlarge w3-border w3-border-white w3-padding-large w3-hover-teal">Profiles</a>
         <p class="w3-col l1"> </p>
     </div>
     </div>
