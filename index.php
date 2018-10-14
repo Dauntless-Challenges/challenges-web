@@ -19,7 +19,7 @@ html_head("Dauntless Challenges");
 
 navbar('bgimg_index');
 
-
+HelpButton();
 pageFade();
 
 
