@@ -19,9 +19,7 @@ $clr_x7 = "orange";
 function connect_db()
 {
 
-// IMPORTANT TO SET TO CONNECT TO DB
-$dbUsername = "admin";
-$dbPassword = "Ts4cYCaTnaUQGzd6";
+require 'db.php';
 
 // DATABASE
  $dbhost = 'localhost';
@@ -53,6 +51,17 @@ function Help() {
         $('div[id="HelpMenu"]').fadeOut();
     }
 }
+
+$(document).mouseup(function(e) 
+{
+    var container = $("div[id='HelpMenu']");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.fadeOut();
+    }
+});
 </script>
 
 
@@ -66,10 +75,10 @@ function Help() {
     </ul>
 </div>
 
-<button class="w3-btn w3-transparent w3-xxxlarge fa fa-question-circle-o w3-text-white" style="border-radius: 50%; position: relative;" onclick="Help();"></button>
+<button class="w3-btn w3-transparent w3-xxxlarge fa fa-question-circle-o w3-text-white" style="border-radius: 50%; position: relative; padding: 0; outline: none;" onclick="Help();"></button>
 </div>
 
-<a href="https://github.com/Dauntless-Challenges" class="w3-display-bottommiddle fa fa-github w3-xxxlarge w3-text-white" style="text-decoration: none; margin-bottom: 2%;" target="_blank"></a>
+<a href="https://github.com/Dauntless-Challenges" class="w3-display-bottomleft fa fa-github w3-xxxlarge w3-text-white" style="text-decoration: none; margin-bottom: 2%; margin-left: 2%; outline: none;" target="_blank"></a>
 
 END;
 }
@@ -246,10 +255,10 @@ function Donate() {
     </script>
         
         <?php if(!isset($_SESSION['user']))
-            echo "<button onclick='InfoDonate();' class='w3-btn w3-blue w3-jumbo w3-text-white w3-padding-large w3-round-xlarge' style='margin-top: 2%;' id='Donate'><span class='fa fa-paypal'></span>&nbsp;Donate</button>";
-            else echo "<a href='https://www.paypal.me/dauntlesschallenges' target='_blank' class='w3-btn w3-blue w3-jumbo w3-text-white w3-padding-large w3-round-xlarge' style='margin-top: 2%;' id='Donate'><span class='fa fa-paypal'></span>&nbsp;Donate</a>"; ?>
+            echo "<button onclick='InfoDonate();' class='w3-btn brand-light-blue w3-jumbo w3-text-white w3-padding-large w3-round-xlarge' style='margin-top: 2%;' id='Donate'><span class='fa fa-paypal'></span>&nbsp;Donate</button>";
+            else echo "<a href='https://www.paypal.me/dauntlesschallenges' target='_blank' class='w3-btn brand-light-blue w3-jumbo w3-text-white w3-padding-large w3-round-xlarge' style='margin-top: 2%;' id='Donate'><span class='fa fa-paypal'></span>&nbsp;Donate</a>"; ?>
             
-        <p class='w3-large w3-text-white' id='Donate'><i>* Please take a screenshot of your payment for us!!</i></p>"
+        <p class='w3-large w3-text-white' id='Donate'><i>* Please take a screenshot of your payment for us!!</i></p>
 
 <?php
 }
@@ -326,21 +335,24 @@ END;
 function Landing() {
 echo <<<END
 
-<div class='w3-display-middle PaperBox w3-container w3-center' style="font-size: 1.5vw;">
+<div class='w3-display-middle LandingBox w3-container w3-center' style="font-size: 1.25vw;">
+
 <p style="font-size: 2.5vw;">Welcome Slayers</p>
 
-<p>This is a community run site which emplores to add some content along with your usual gameplay. We aim to create challenges that will breathe a bit of life into the game, as the devs try to catch up with our ever hungering desire for CONTENT!</p>
+<p>It seems you have climbed to the top, defeated the most dangerous of behemoths and have ran out of challenges. . . 
 
-<p>We look to provide some entertaining expeditions which you can then use to brag to all your Dauntless buddies, or compete with them to see who is the very best.</p>
+<br />Well, it seems you have come to the right place. We dont serve normal hunts here. All hunts presented are deadly or worse!
 
-<p>Please enjoy our ambitious project.
-<br />
-We hope to see you in our ever growing community.</p>
+<br /><br />Your reward for surviving these challenges? 
+<br />Bragging rights.
+<br />We keep track of both the solo and team challenges to make sure you always have something to brag about to others.
+
+<br /><br />Do you think you've got what it takes?</p>
 
 <div id="badge" style="margin-top: -4%;">
 <a href="login.php" style="cursor: pointer; text-decoration: none;">
 <img src="images/badge.png" alt="Badge" width="25%" />
-<p class='w3-text-white' style='z-index: 10; margin-top: -17%; font-size: 3vw;'>Join now!</p>
+<p class='w3-text-white' style='z-index: 10; margin-top: -16%; font-size: 2.5vw;'>Join Now!</p>
 </a>
 </div>
 
@@ -366,6 +378,8 @@ swal({
   dangerMode: true
 });
 </script>
+
+<meta http-equiv='refresh' content='5; url=login.php'>
 
 END;
 }
@@ -436,7 +450,7 @@ $conn = connect_db();
 	$sql = "SELECT * FROM ". $name;
 	$res = mysqli_query($conn, $sql);
 
-	$count = mysqli_num_rows($res);
+	if($res) $count = mysqli_num_rows($res);
 
 mysqli_close($conn);
 
@@ -457,6 +471,7 @@ mysqli_close($conn);
 				if($name == "difficulties") while($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) { echo "<option class='w3-xxlarge w3-text-black' value='". $row['id_difficulty'] ."'>". $row['name'] ."</option>"; }
 				if($name == "guilds") while($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) { echo "<option class='w3-xxlarge w3-text-black' value='". $row['id_guild'] ."'>". $row['name'] ."</option>"; }
 				if($name == "weapons") while($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) { echo "<option class='w3-xxlarge w3-text-black' value='". $row['id_weapon'] ."'>". $row['name'] ."</option>"; }
+				if($name == "behemoths") while($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) { echo "<option class='w3-xxlarge w3-text-black' value='". $row['id_behemoth'] ."'>". $row['name'] ."</option>"; }
 			 }
 			?>
         </select>
@@ -504,6 +519,7 @@ echo <<<END
         <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
 	    <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/hover.css">
         <link rel="icon" type="image/png" href="images/logo.png">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -600,14 +616,14 @@ echo "<body class=". $body_class .">";
 
 <!-- LOGO -->
  <div class='w3-left'>
-  <a href='./'><img src="images/navlogo.png" style='border-radius: 50%; width: 72px; position: absolute; z-index: 99; left: 7%; top: 10%;' /></a>
+  <a href='./'><img src="images/badge.png" style='width: 96px; position: absolute; z-index: 99; left: 8%; top: 4%; outline: none;' /></a>
  </div>
 
 <div class="w3-row web-bar brand-dark-blue w3-card-4">
 
 <!-- HOME -->
- <div class='brand-light-blue w3-xlarge w3-bar-item w3-hide-small Sedgwick' style='border-radius: 50px 0px 0px 50px; width: 300px; height: 100%;'>
-  <a style='text-decoration: none;' href="index.php"><p style='width: 230px; height: 100%; margin-left: 20%; margin-top: 5px'>Dauntless Challenges</p></a>
+ <div class='brand-light-blue w3-xlarge w3-bar-item w3-hide-small Sedgwick' style='border-radius: 50px 0px 0px 50px; width: 250px; height: 100%;'>
+  <a style='text-decoration: none; outline: none;' href="index.php"><p style='width: 200px; height: 100%; margin-left: 50%; margin-top: -5px; font-size: 20px'>Dauntless<br />Challenges</p></a>
  </div>
 
 <div class='w3-center'>
@@ -621,6 +637,11 @@ echo "<body class=". $body_class .">";
   <a style='text-decoration: none;' href="public-leaderboards.php"><p style='height: 100%; margin-top: 2px;'>Leaderboards</p></a>
  </div>
 
+ <!-- Speedruns -->
+ <div class='w3-third w3-xlarge w3-bar-item w3-hide-small Oswald' style='height: 100%;'>
+  <a style='text-decoration: none;' href="https://speedruns.dauntless-challenges.com/"><p style='height: 100%; margin-top: 2px;'>Speedruns</p></a>
+ </div>
+
 <!-- Support -->
  <div class='w3-third w3-xlarge w3-bar-item w3-hide-small Oswald' style='height: 100%;'>
   <a style='text-decoration: none;' href="support-us.php"><p style='height: 100%; margin-top: 2px;'>Support Us</p></a>
@@ -630,14 +651,14 @@ echo "<body class=". $body_class .">";
 <span class="w3-bar-item w3-border-left" style="height: 80%; margin-top: 5px;"> </span>
 
 <form method="get" action="public-profile.php">
-<input type="text" class="w3-bar-item w3-input w3-large Oswald w3-transparent w3-text-white" name="public-user" style="width: 20%; height: 100%; margin-top: 8px;" placeholder="Search for Player..." id="Search">
+<input type="text" class="w3-bar-item w3-input w3-large Oswald w3-transparent w3-text-white" name="public-user" style="width: 16%; height: 100%; margin-top: 8px;" placeholder="Search for Player..." id="Search">
 </form>
  
  
 <!-- LOGIN -->
 
  <?php if(!isset($_SESSION['user'])) { ?>
- <div class='brand-blue-gray w3-right w3-xlarge w3-bar-item w3-btn w3-hide-small Oswald' style='border-radius: 0px 60px 60px 0px; width: 150px; height: 100%;'>
+ <div class='brand-light-blue w3-right w3-xlarge w3-bar-item w3-btn w3-hide-small Oswald' style='border-radius: 0px 60px 60px 0px; width: 150px; height: 100%;'>
   <a style='text-decoration: none;' href="login.php"><p style='width: 125px; height: 100%; margin-top: 3px;'>LOG IN</p></a>
  </div>
  <?php } else { ?>
@@ -670,7 +691,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return $gotValue['name'];
 }
@@ -685,7 +706,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return $gotValue['permission'];
 }
@@ -700,7 +721,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return $gotValue['id_user'];
 }
@@ -715,7 +736,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return $gotValue['shortcut'];
 }
@@ -730,7 +751,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return $gotValue['name'];
 }
@@ -745,7 +766,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return $gotValue['name'];
 }
@@ -760,7 +781,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return $gotValue['image'];
 }
@@ -775,7 +796,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return nl2br($gotValue['note']);
 }
@@ -790,7 +811,7 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return nl2br($gotValue['exp']);
 }
@@ -805,9 +826,84 @@ $sql_res = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$gotValue = mysqli_fetch_array($sql_res, MYSQL_ASSOC);
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return nl2br($gotValue['name']);
+}
+
+// ------------------------------
+
+function getDifficulty($id) {
+$conn = connect_db();
+
+$sql='SELECT name FROM difficulties WHERE id_difficulty='. $id;
+$sql_res = mysqli_query($conn, $sql);
+
+mysqli_close($conn);
+
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
+
+return nl2br($gotValue['name']);
+}
+
+// ------------------------------
+
+function getChallenge($id) {
+$conn = connect_db();
+
+$sql='SELECT name FROM challenges WHERE id_challenge='. $id;
+$sql_res = mysqli_query($conn, $sql);
+
+mysqli_close($conn);
+
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
+
+return nl2br($gotValue['name']);
+}
+
+// ------------------------------
+
+function getColor($id) {
+$conn = connect_db();
+
+$sql='SELECT name FROM colors WHERE id_color="'. $id .'"';
+$sql_res = mysqli_query($conn, $sql);
+
+mysqli_close($conn);
+
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
+
+return nl2br($gotValue['name']);
+}
+
+// ------------------------------
+
+function getClanBgName($id) {
+$conn = connect_db();
+
+$sql='SELECT name FROM clanbacks WHERE id_cb='. $id;
+$sql_res = mysqli_query($conn, $sql);
+
+mysqli_close($conn);
+
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
+
+return nl2br($gotValue['name']);
+}
+
+// ------------------------------
+
+function getClanBg($id) {
+$conn = connect_db();
+
+$sql='SELECT background FROM clanbacks WHERE id_cb='. $id;
+$sql_res = mysqli_query($conn, $sql);
+
+mysqli_close($conn);
+
+$gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
+
+return nl2br($gotValue['background']);
 }
 
 // ------------------------------
