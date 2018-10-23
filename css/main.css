@@ -43,10 +43,6 @@
     background: #267191 !important;
 }
 
-.brand-blue-gray {
-    background: #283548 !important;
-}
-
 .brand-red {
     background: #aa0909 !important;
 }
@@ -57,6 +53,26 @@
 
 
 /* Custom CSS for Elements */
+
+.diff_easy {
+	background-color: #267191;
+}
+
+.diff_medium {
+	background-color: #524d68;
+}
+
+.diff_hard {
+	background-color: #78313D;
+}
+
+.diff_hard_plus {
+	background-color: #b31919;
+}
+
+
+
+
 
 .web-jumbo {
         font-size: 96px;
@@ -101,9 +117,10 @@
 
 /* Box Styles */
 
-.PaperBox {
+.LandingBox {
     background-image: url("../images/old_paper.png");
     background-size: cover;
+    opacity: 0.9;
     
     height: 70%;
     width: 60%;
@@ -121,8 +138,8 @@
     background-image: url("../images/old_paper.png");
     background-size: cover;
     
-    height: 65%;
-    width: 70%;
+    height: 70%;
+    width: 80%;
     
     border: 3px solid black;
     border-radius: 25px;
@@ -130,6 +147,21 @@
     margin-top: 2%;
     
     font-family: Oswald;
+}
+
+.AboutBox {
+    background-image: url("../images/old_paper.png");
+    background-size: cover;
+    
+    height: 70%;
+    width: 80%;
+    
+    border: 3px solid black;
+    border-radius: 50px;
+
+    margin: auto;
+    
+    font-family: Passero One;
 }
 
 @media (min-width: 760px) {
@@ -260,13 +292,28 @@
     border: 2px solid black;
     border-radius: 0 40px 40px 0;
 
-    width: 50%;
+    width: 65%;
     height: 1%;
 
     font-size: 1.5vw;
 
-    margin-top: -11%;
+    margin-top: -13%;
     margin-left: -10%;
+}
+
+.ProfileBtn {
+	margin-left: 30%;
+	font-size: 1vw;
+	width: 100%;
+	border-radius: 25px 0 0 25px;
+	border: 2px solid black;
+}
+
+.ProfileNote {
+	width: 80%;
+	margin-top: 16%;
+	margin-right: 2%;
+	background-color: #c2a870;
 }
 
 
@@ -287,8 +334,23 @@
 
 
 
+.badgeBg {
+	min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+	margin-top: 2%;
+	margin-top: -2px;
+	margin-left: -18px;
+	border-radius: 25px 0 25px 0;
+	border: 2px solid black;
+	padding: 1%;
+}
+
+
 .bgimg_index {
-    background-image: url('../images/index.jpg');
+    background-image: url('../images/index_proto.jpg');
     min-height: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -297,13 +359,22 @@
 }
 
 .bgimg_index_logged {
-    background-image: url('../images/tavern.jpg');
+    background-image: url('../images/tavern.png');
     min-height: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain cover;
+    background-size: cover;
 }
+
+/*.bgimg_about {
+    background-image: url('https://playdauntless.com/images/media-wallpapers/drask-reveal-wallpaper-dauntless-1920x1080.jpg');
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
 
 .bgimg_login {
     background-image: url('../images/login.jpg');
