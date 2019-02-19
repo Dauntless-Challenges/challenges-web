@@ -93,7 +93,7 @@ function ProfileStats() {
 	<p class='ProfileName w3-padding w3-card-2 PasseroOne' style="color: <?php echo $row['color']; ?>;"><?php echo getUser($row['id_user']); ?> [<?php if($row['id_guild'] != 0) echo getGuild($row['id_guild']); else echo "No Guild"; ?>]</p>
 	<p class='ProfileTitle w3-padding w3-card-4 PasseroOne'><?php if($row['id_title'] == 0) echo "None"; else echo getTitle($row['id_title']); ?></p>
 
-	<p class="w3-tooltip" style="margin-top: 20%; font-size: 1.25vw; position: relative"><span class="brand-dark-blue w3-round-xxlarge w3-animate-opacity w3-padding w3-text w3-tag" style="font-size: 1vw; position: absolute; bottom: 100%; right: 8%;"><i>Since <?php echo date('F dS, Y \a\t h:mA', strtotime($row['date'])); ?></i></span>Member for <u><?php echo $ago->format("%m months and %d days"); ?></u></p>
+	<p class="w3-tooltip" style="margin-top: 20%; font-size: 1.25vw; position: relative"><span class="brand-dark-blue w3-round-xxlarge w3-animate-opacity w3-padding w3-text w3-tag" style="font-size: 1vw; position: absolute; bottom: 100%; right: 8%;"><i>Since <?php echo date('F jS, Y \a\t h:mA', strtotime($row['date'])); ?></i></span>Member for <u><?php echo $ago->format("%m months and %d days"); ?></u></p>
 </div>
 
 <div class="w3-col l7" id="ProfileNotes" style="margin: auto;">

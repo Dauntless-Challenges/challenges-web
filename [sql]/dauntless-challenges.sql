@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Úte 23. říj 2018, 13:22
+-- Vytvořeno: Úte 19. úno 2019, 17:29
 -- Verze serveru: 10.1.36-MariaDB
 -- Verze PHP: 7.2.10
 
@@ -82,7 +82,9 @@ INSERT INTO `challenges` (`id_challenge`, `id_run`, `id_party`, `id_difficulty`,
 (2, 1, 1, 2, 'Second Test', '&gt;.&lt;', 999, 6514654, 0, '2018-10-16', '2018-10-19'),
 (3, 1, 1, 3, 'Chicken on Pan', 'LMAO', 1, 1, 0, '2018-10-16', '2018-10-20'),
 (4, 1, 1, 4, 'Gimme Ez', 'Too hard for u', 100, 100, 0, '2018-10-16', '2018-10-24'),
-(5, 1, 1, 3, 'Where is my lunch', 'Gimme ples~', 2, 2000000, 0, '2018-10-17', '2018-10-24');
+(5, 1, 1, 3, 'Where is my lunch', 'Gimme ples~', 2, 2000000, 0, '2018-10-17', '2018-10-24'),
+(6, 1, 1, 1, 'New :>', 'Wtf, just go!', 10, 10, 0, '2019-02-03', '2019-04-28'),
+(7, 1, 1, 2, 'Ples ples T^T', 'OMG OMG', 20, 20, 0, '2019-02-04', '2019-04-28');
 
 -- --------------------------------------------------------
 
@@ -183,6 +185,26 @@ INSERT INTO `guilds` (`id_guild`, `name`, `shortcut`, `note`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabulky `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id_notification` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_challenge` int(11) NOT NULL,
+  `decision` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Vypisuji data pro tabulku `notifications`
+--
+
+INSERT INTO `notifications` (`id_notification`, `id_user`, `id_challenge`, `decision`) VALUES
+(9, 0, 6, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabulky `parties`
 --
 
@@ -214,6 +236,7 @@ CREATE TABLE `profiles` (
   `id_weapon` int(11) NOT NULL,
   `id_badge` int(11) NOT NULL,
   `exp` int(11) NOT NULL,
+  `money` int(11) NOT NULL DEFAULT '0',
   `ch_done` int(11) NOT NULL,
   `sp_board` int(11) NOT NULL,
   `color` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
@@ -227,9 +250,9 @@ CREATE TABLE `profiles` (
 -- Vypisuji data pro tabulku `profiles`
 --
 
-INSERT INTO `profiles` (`id_profile`, `id_user`, `id_guild`, `id_title`, `id_challenge`, `id_weapon`, `id_badge`, `exp`, `ch_done`, `sp_board`, `color`, `clanbg`, `date`, `public`, `note`) VALUES
-(1, 1, 1, 8, 2, 89, 8, 7435, 0, 0, '', 1, '2018-09-19 09:47:52', 1, 'Greetings Travellers,\r\nI\'m EriiYenn and I\'m Chief Programmer of Challenges Project.\r\nAlso please call me shortly Erii!! ^^\r\n\r\nI hope you enjoy this website as much as I do. I\'m trying to work on it every day to keep it with the Brand :3'),
-(2, 2, 2, 2, 3, 0, 0, 0, 0, 0, '', 0, '2018-09-19 10:20:13', 0, 'ADMIN?');
+INSERT INTO `profiles` (`id_profile`, `id_user`, `id_guild`, `id_title`, `id_challenge`, `id_weapon`, `id_badge`, `exp`, `money`, `ch_done`, `sp_board`, `color`, `clanbg`, `date`, `public`, `note`) VALUES
+(1, 1, 1, 8, 2, 89, 8, 7335, 0, 0, 0, '', 1, '2018-09-19 09:47:52', 1, 'Greetings Travellers,\r\nI\'m EriiYenn and I\'m Chief Programmer of Challenges Project.\r\nAlso please call me shortly Erii!! ^^\r\n\r\nI hope you enjoy this website as much as I do. I\'m trying to work on it every day to keep it with the Brand :3'),
+(2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, '', 0, '2018-09-19 10:20:13', 0, 'ADMIN?');
 
 -- --------------------------------------------------------
 
@@ -276,6 +299,23 @@ INSERT INTO `titles` (`id_title`, `name`, `note`) VALUES
 (7, 'General', 'A Slayer who orders Commanders'),
 (8, 'Chosen Ram', 'A slayer chosen to be The Ram'),
 (9, 'Testerino :>', 'Testing ? č\r\nLOL');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `userchallenges`
+--
+
+CREATE TABLE `userchallenges` (
+  `id_uc` int(11) NOT NULL,
+  `id_challenge` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `date_started` date NOT NULL,
+  `date_completed` date NOT NULL,
+  `proof` varchar(100) NOT NULL,
+  `state` int(11) NOT NULL DEFAULT '0',
+  `note` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -550,6 +590,12 @@ ALTER TABLE `guilds`
   ADD PRIMARY KEY (`id_guild`);
 
 --
+-- Klíče pro tabulku `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id_notification`);
+
+--
 -- Klíče pro tabulku `parties`
 --
 ALTER TABLE `parties`
@@ -572,6 +618,12 @@ ALTER TABLE `runs`
 --
 ALTER TABLE `titles`
   ADD PRIMARY KEY (`id_title`);
+
+--
+-- Klíče pro tabulku `userchallenges`
+--
+ALTER TABLE `userchallenges`
+  ADD PRIMARY KEY (`id_uc`);
 
 --
 -- Klíče pro tabulku `userclanbacks`
@@ -617,7 +669,7 @@ ALTER TABLE `badges`
 -- AUTO_INCREMENT pro tabulku `challenges`
 --
 ALTER TABLE `challenges`
-  MODIFY `id_challenge` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_challenge` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pro tabulku `clanbacks`
@@ -636,6 +688,12 @@ ALTER TABLE `difficulties`
 --
 ALTER TABLE `guilds`
   MODIFY `id_guild` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pro tabulku `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id_notification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pro tabulku `parties`
@@ -660,6 +718,12 @@ ALTER TABLE `runs`
 --
 ALTER TABLE `titles`
   MODIFY `id_title` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pro tabulku `userchallenges`
+--
+ALTER TABLE `userchallenges`
+  MODIFY `id_uc` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pro tabulku `userclanbacks`
