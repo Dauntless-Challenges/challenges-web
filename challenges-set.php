@@ -66,23 +66,7 @@ function ChallengeSearch() {
 
 	<div class="w3-row" style="margin-left: 10%;" id="ChallengeDiv">
 		<?php
-		while($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
-
-			if($row['id_difficulty'] == 1) $color = "diff_easy";
-			if($row['id_difficulty'] == 2) $color = "diff_medium";
-			if($row['id_difficulty'] == 3) $color = "diff_hard";
-			if($row['id_difficulty'] == 4) $color = "diff_hard_plus";
-
-			echo '
-			<form method="post" action="challenges-edit.php" id="Challenge">
-			<input type="hidden" name="id" value="'. $row['id_challenge'] .'">
-			<button id="ChallengeCard" class="w3-btn w3-card-2 hvr-hang w3-quarter '. $color .' w3-round-xxlarge w3-center" style="margin: 2%;">
-				<p class="PasseroOne" style="font-size: 1.5vw; margin-top: 1%; margin-bottom: 0">'. $row['name'] .'</p>
-				<hr class="w3-border-light-grey" style="margin: auto; width: 90%; margin-bottom: 5%;" />
-				<i style="font-size: 1vw; opacity: 0.6;">- '. $row['description'] .'</i>
-			</form>
-			';
-		}
+		while($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) ChallengeButton($row, "form");
 		?>
 	</div>
 

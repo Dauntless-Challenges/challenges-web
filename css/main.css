@@ -72,6 +72,24 @@
 
 
 
+/* ------------------------------ */
+
+
+/* Custom CSS for Elements */
+
+.toast_success {
+    background-color: mediumseagreen;
+    color: #003311;
+}
+
+.toast_deny {
+    background-color: #993333;
+    color: #330000;
+}
+
+
+
+
 
 
 .web-jumbo {
@@ -405,6 +423,15 @@
 
 .bgimg_coming {
     background-image: url('../images/coming.jpg');
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimg_challenges {
+    background-image: url('../images/index_proto.jpg');
     min-height: 100%;
     background-attachment: fixed;
     background-position: center;
