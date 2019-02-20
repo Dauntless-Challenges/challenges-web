@@ -111,7 +111,7 @@ $_SESSION['log'] = 0;
 </div>
 
 
-<div class="w3-half w3-card-4 w3-round-xlarge w3-flat-midnight-blue w3-right" style="position: relative; width: 30%; margin-right: 10%; margin-left: 5%;">
+<div class="w3-half w3-card-4 w3-round-xlarge w3-right midnight-blue" style="position: relative; width: 30%; margin-right: 10%; margin-left: 5%;">
 	<img src="http://ecard.enter-media.org/upload/iblock/9dc/9dc8991684a93b20ef0586d6afff3d5d.png" alt="Ribbon Banner" style="width: 100%; position:absolute;" />
 
 	<div class="w3-padding-large w3-center" style="margin-top: 8%; font-size: 0.8vw;">

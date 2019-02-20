@@ -602,7 +602,7 @@ echo <<<END
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
         <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
@@ -612,11 +612,10 @@ echo <<<END
         <link rel="icon" type="image/png" href="images/logo.png">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.5/core.min.js"></script>
 
-
-	<script src="js/sweetalert2.all.min.js"></script>
-	<link rel="stylesheet" href="css/sweetalert2.min.css" />
-	<script src="js/ajax-core.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
 <head>
 
