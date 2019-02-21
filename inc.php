@@ -537,7 +537,7 @@ function ChallengeButton($challengesRow, $type) {
 			<div class="w3-half w3-row">
 				<div class="w3-quarter"><p> </p></div>
 				<div class="w3-quarter">
-					<img src="images/xp.png" style="width: 100%; margin-top: 25%;" />
+					<img src="images/XP.png" style="width: 100%; margin-top: 25%;" />
 				</div>
 				<div class="w3-quarter w3-text-light-grey">
 					<p>'. $challengesRow['r_exp'] .'</p>
@@ -546,7 +546,7 @@ function ChallengeButton($challengesRow, $type) {
 			<div class="w3-half w3-row">
 				<div class="w3-quarter"><p> </p></div>
 				<div class="w3-quarter">
-					<img src="images/ct.png" style="width: 100%; margin-top: 25%;" />
+					<img src="images/CT.png" style="width: 100%; margin-top: 25%;" />
 				</div>
 				<div class="w3-quarter w3-text-amber">
 					<p>'. $challengesRow['r_money'] .'</p>
@@ -767,7 +767,7 @@ echo "<body class=". $body_class .">";
  ?>
 <span class="fa-stack fa-2x w3-bar-item" style='font-size: 1.5vw; margin-top: -5px;'>
  <a href='submissions.php'>
-  <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+  <i class="fa fa-bell fa-stack-1x fa-inverse hvr-buzz-out"></i>
   <span class='fa-stack w3-badge w3-red w3-opacity-min' style='margin-bottom: 90%; margin-left: 60%; font-size: 0.6vw;'><?php echo $count; ?></span>
  </a>
 </span>
@@ -785,7 +785,7 @@ $conn = connect_db();
 ?>
 
 <div class="w3-bar-item w3-row PasseroOne" style="margin-top: 5px; margin-left: 2%; width: 10%;">
-	<image src="images/CT.png" style="width: 25%;" class="w3-quarter" />
+	<image src="images/CT.png" style="width: 25%;" class="w3-quarter hvr-bounce-in" />
 	<p class="w3-quarter" style="font-size: 1.5vw; margin-left: 5%; margin-top: -5%;"><?php echo $profileRow['money']; ?></p>
 </div>
 

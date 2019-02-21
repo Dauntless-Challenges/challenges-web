@@ -116,7 +116,7 @@ mysqli_close($conn);
 	<div class="w3-half" style="margin-top: 5%;">
 	  <div class="w3-padding-large w3-round-xxlarge w3-text-white w3-row" style="margin: 0 30%; background-color: #570099;">	
 		<div class="w3-quarter" style="padding-top: 5%; padding-left: 10%;">
-			<img src="images/xp.png" style="width: 100%;" />
+			<img src="images/XP.png" style="width: 100%;" />
 		</div>
 		<div class="w3-rest">
 			<p>Exp: <?php echo $challengeRow['r_exp']; ?></p>
@@ -125,7 +125,7 @@ mysqli_close($conn);
 
 	  <div class="w3-padding-large w3-round-xxlarge w3-text-white w3-row" style="margin: 0 30%; margin-top: 5%; background-color: #b36b00;">
 	  <div class="w3-quarter" style="padding-top: 5%; padding-left: 10%;">
-			<img src="images/ct.png" style="width: 100%;" />
+			<img src="images/CT.png" style="width: 100%;" />
 		</div>
 		<div class="w3-rest">
 			<p>Money: <?php echo $challengeRow['r_money']; ?></p>

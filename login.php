@@ -201,7 +201,6 @@ swal({
   showConfirmButton: false,
   timer: 2000
 });
-setTimeout(function(){ window.location.reload(); }, 1500);
 </script>
 <?php
 $_SESSION['logout'] = 0;

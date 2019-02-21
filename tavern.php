@@ -82,7 +82,7 @@ $_SESSION['log'] = 0;
 	<p style="font-size: 1.25vw;"><u>Notifications</u></p>
 
 	<?php
-	if(isset($_SESSION['challenge_approved'])) {
+	//if(isset($_SESSION['challenge_approved'])) {
 		$conn = connect_db();
 		$sql = "SELECT * FROM notifications WHERE id_user=". $_SESSION['user'];
 		$res_n = mysqli_query($conn, $sql);
@@ -92,22 +92,24 @@ $_SESSION['log'] = 0;
 			$conn = connect_db();
 			$sql = "DELETE FROM notifications WHERE id_user=". $_SESSION['user'] ." AND id_challenge=". $_POST['id'];
 			$res = mysqli_query($conn, $sql);
+			
+			echo '<meta http-equiv="refresh" content="0;tavern.php">';
 		}
 
 	while($notificationRow = mysqli_fetch_array($res_n, MYSQLI_ASSOC)) {
 	?>
 	<form action="" method="post" class="Oswald hvr-hang">
 	<?php if($notificationRow['decision'] == 1)
-		echo '<button class="w3-btn w3-panel w3-display-container w3-card-2 w3-round-xlarge w3-row w3-center toast_success" value="'. $notificationRow['id_challenge'] .'" name="id" onclick="this.parentElement.style.display=none">
+		echo '<button class="w3-btn w3-panel w3-display-container w3-card-2 w3-round-xlarge w3-row w3-center toast_success" value="'. $notificationRow['id_challenge'] .'" name="id">
 			<p style="font-size: 0.9vw;"><span class="fa fa-calendar-check-o" style="font-size: 1.25vw;"></span> &nbsp; Your challenge: <b>'. getChallenge($notificationRow['id_challenge']) .'</b> has been approved and counted for you :3</p>
 		</button>';
 	  else 
-		echo '<button class="w3-btn w3-panel w3-display-container w3-card-2 w3-round-xlarge w3-row w3-center toast_deny" value="'. $notificationRow['id_challenge'] .'" name="id" onclick="this.parentElement.style.display=none">
+		echo '<button class="w3-btn w3-panel w3-display-container w3-card-2 w3-round-xlarge w3-row w3-center toast_deny" value="'. $notificationRow['id_challenge'] .'" name="id">
 			<p style="font-size: 0.9vw;"><span class="fa fa-calendar-check-o" style="font-size: 1.25vw;"></span> &nbsp; Your challenge: <b>'. getChallenge($notificationRow['id_challenge']) .'</b> has been denied and resetted for submission :C</p>
 		</button>';
 	?>
 	</form>
-	<?php } } ?>
+	<?php } //} ?>
 </div>
 
 
