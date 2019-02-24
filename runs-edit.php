@@ -84,26 +84,26 @@ $noteValue = 255 - strlen($set['note']);
 
 <div class="w3-text-light-grey Oswald">
 
-<p class="w3-center" style="margin-top: -2%; font-size: 5vw;">Edit of Run Type No.<?php echo $id; ?></p>
+<p class="web-feature-title-edit w3-center">Edit of Run Type No.<?php echo $id; ?></p>
 
 <form method="post" action="">
 	
 	<input type="hidden" name="id" value="<?php echo $id; ?>" />
 
-	<div style="margin-left: 30%; margin-top: -4%;">
-	<b><label for="name" style="font-size: 1.5vw;">Run Type Name: </label></b>
-	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." value="<?php echo $set['name']; ?>" name="name" id="name" style="width: 30%; max-width: 40%; font-size: 1.25vw;" required />
+	<div class="web-feature-single-div">
+	<b><label class="fs-1p5vw" for="name">Run Type Name: </label></b>
+	<input type="text" class="web-feature-single-form-element w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." value="<?php echo $set['name']; ?>" name="name" id="name" required />
 	
-	<div style="margin-top: 5%;">
-	<b><label for="note" class="w3-text-light-grey" style="font-size: 2vw;">Run Type Description: </label></b><br />
-	<textarea class="w3-transparent w3-text-light-grey w3-border-0 w3-leftbar" onKeyDown="limitText(this.form.note,this.form.countdown,255);" 
-onKeyUp="limitText(this.form.note,this.form.countdown,255);" name="note" id="note" style="width: 40%; resize: none; height: 10rem; padding-left: 2%; font-size: 1vw;"><?php echo htmlspecialchars($set['note']); ?></textarea>
-	<input class="w3-input w3-transparent w3-text-light-grey w3-center" name="countdown" value="<?php echo $noteValue; ?>" style="width: 10%;" /> characters left
+	<div class="mt-5_">
+	<b><label for="note" class="w3-text-light-grey fs-1p5vw">Run Type Description: </label></b><br />
+	<textarea class="web-feature-single-note w3-transparent w3-text-light-grey w3-border-0 w3-leftbar" onKeyDown="limitText(this.form.note,this.form.countdown,255);" 
+onKeyUp="limitText(this.form.note,this.form.countdown,255);" name="note" id="note"><?php echo htmlspecialchars($set['note']); ?></textarea>
+	<input class="w3-input w3-transparent w3-text-light-grey w3-center w-10_" name="countdown" value="<?php echo $noteValue; ?>" /> characters left
 	</div>
 
-	<div class='w3-center' style='margin-top: 2%; margin-left: -50%; font-size: 1.5vw;'>
+	<div class='web-feature-single-buttons w3-center'>
 		<input type='submit' value='Edit' name='Edit' class='w3-btn w3-transparent w3-text-green w3-border w3-border-green w3-padding-large' />
-        <input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large' style='margin-left: 5%;' />
+        <input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large ml-5_' />
 	</div>
 
 	</div>

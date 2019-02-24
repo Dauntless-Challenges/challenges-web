@@ -56,15 +56,15 @@ function ChallengeSearch() {
 
 <div class="w3-text-light-grey Oswald">
 
-	<div class="w3-container" style="margin: 0 10%; margin-bottom: 2%;">
-		<a href="challenges-add.php" class="w3-btn w3-transparent w3-border w3-border-lime w3-text-lime w3-padding-large w3-round-xxlarge" style="font-size: 1.5vw;">Add Challenge</a>
-		<span style="font-size: 2vw; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp; or search &nbsp;</span>
-		<input type="text" class="w3-right w3-input w3-transparent w3-text-light-grey w3-border-bottom w3-animate-input" id="ChallengesSearch" placeholder="Search for Challenge..." onkeyup="ChallengeSearch();	" style="width: 50%; max-width: 70%; margin-top: 0.5%; font-size: 1.5vw" />
+	<div class="web-challenges-div w3-container">
+		<a href="challenges-add.php" class="w3-btn w3-transparent w3-border w3-border-lime w3-text-lime w3-padding-large w3-round-xxlarge fs-1p5vw">Add Challenge</a>
+		<span class="web-challenges-search-text">&nbsp;&nbsp;&nbsp;&nbsp; or search &nbsp;</span>
+		<input type="text" class="web-challenges-search w3-right w3-input w3-transparent w3-text-light-grey w3-border-bottom w3-animate-input" id="ChallengesSearch" placeholder="Search for Challenge..." onkeyup="ChallengeSearch();" />
 	</div>
 
-	<hr style="margin: auto; width: 95%; margin-bottom: 2%; border: 0; height: 4px; background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 0.75), rgba(255,255,255, 0));" />
+	<hr class="web-challenges-hr-special" />
 
-	<div class="w3-row" style="margin-left: 10%;" id="ChallengeDiv">
+	<div class="w3-row ml-10_" id="ChallengeDiv">
 		<?php
 		while($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) ChallengeButton($row, "form");
 		?>

@@ -16,12 +16,12 @@ pageFade();
 
 ?>
 
-<div class="w3-container w3-text-dark-grey Oswald" style="margin-top: -2%;">
+<div class="w3-container w3-text-dark-grey Oswald mt-2_">
     <div id="DonateBox">
-    <p class="w3-xxxlarge w3-text-white w3-center w3-border w3-border-white" id="DonateTitle">Want to make Gnashers satisfied and happy??</p>
+    <p class="w3-text-white w3-center w3-border w3-border-white fs-2vw" id="DonateTitle">Want to make Gnashers satisfied and happy??</p>
     
-    <div class="w3-center" style="margin-top: 2%;">
-        <p class="w3-text-white w3-xxlarge" id="DonateText">Get them some money for food and they'll be so grateful...</p>
+    <div class="w3-center mt-2_">
+        <p class="w3-text-white fs-1p5vw" id="DonateText">Get them some money for food and they'll be so grateful...</p>
         
         <?php //echo SupportUs(); ?>
         

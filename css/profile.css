@@ -1,0 +1,85 @@
+/* Profile Styles */
+
+
+.web-profile-tooltip {
+    margin-top: 20%;
+    font-size: 1.25vw;
+    position: relative;
+}
+
+.web-profile-tooltip-popup {
+    font-size: 1vw;
+    position: absolute;
+    bottom: 100%;
+    right: 8%;
+}
+
+.web-profile-note-desc {
+    font-size: 1.5vw;
+    word-break: break;
+}
+
+.web-profile-badge {
+    margin: auto;
+    padding-left: 10%;
+    margin-top: 8%;
+}
+
+.web-profile-badge-xp {
+    background-color: #570099;
+    height: 1.75rem;
+    max-width: 100%;
+}
+
+.web-profile-badge-desc {
+    font-size: 1.25vw;
+    margin-left: -15%;
+    margin-top: 2%;
+    padding: auto;
+    width: 60%;
+}
+
+.web-profile-stats {
+    margin: auto;
+    padding-left: 10%;
+    margin-top: 8%;
+    font-size: 1.5vw;
+}
+
+.web-profile-buttons {
+    margin: auto;
+    margin-top: 13%;
+}
+
+.web-profile-button-edit {
+    outline: none;
+    margin-top: 70%;
+}
+
+.web-profile-edit-title {
+    font-size: 1.5vw;
+    margin-top: -2%;
+}
+
+.web-profile-edit-div {
+    font-size: 1.25vw;
+    opacity: 0.9;
+}
+
+.web-profile-edit-column {
+    padding-right: 30%;
+    padding-left: 5%;
+}
+
+.web-profile-edit-note {
+    width: 100%;
+    resize: none;
+    height: 13rem;
+    padding-left: 2%;
+    font-size: 0.75vw;
+}
+
+.web-profile-edit-buttons {
+    margin-top: 5%;
+    font-size: 1.5vw;
+}

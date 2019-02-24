@@ -58,8 +58,8 @@ swal({
   allowOutsideClick: true,
   showCloseButton: true,
   html: '<p style="margin-bottom: 10%; font-size: 1vw;">Proof:<br /><a class="w3-text-indigo" style="text-decoration: none;" href="' + proof + '" target="_blank">' + proof + '</a></p>' +
-		'<div class="w3-row"><div class="w3-half"><form action="submit-approve.php" method="post"><input type="hidden" name="user" value="' + y + '" /><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #006666;">Accept!!</button></form></div>' +
-		'<div class="w3-half"><form action="submit-remove.php" method="post"><input type="hidden" name="user" value="' + y + '" /><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #d33;">Remove!!</button></form></div></div>'
+		'<div class="w3-row"><div class="w3-half"><form action="submit-approve.php" method="post"><input type="hidden" name="user" value="' + y + '" /><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #006666;"><i class="fas fa-user-plus"></i>&nbsp; Accept!!</button></form></div>' +
+		'<div class="w3-half"><form action="submit-remove.php" method="post"><input type="hidden" name="user" value="' + y + '" /><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #d33;"><i class="fas fa-user-times"></i>&nbsp; Remove!!</button></form></div></div>'
 });
 }
 </script>
@@ -67,10 +67,10 @@ swal({
 
 
 <div class="w3-display-middle w3-center w3-text-light-grey Oswald" style="margin-top: -15%;">
-	<p class="animation-target w3-border-bottom w3-center" style="font-size: 1.5vw;">Submissions</p>
+	<p class="animation-target w3-border-bottom w3-center fs-1p5vw">Submissions</p>
 </div>
 
-	<div class="w3-row" style="margin-top: 5%; margin-left: 12%;">
+	<div class="web-challenges-submission-div w3-row">
 	<?php
 		while($challengesRow = mysqli_fetch_array($result_ch, MYSQLI_ASSOC)) {
 		

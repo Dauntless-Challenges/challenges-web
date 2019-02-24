@@ -201,7 +201,6 @@ swal({
   showConfirmButton: false,
   timer: 2000
 });
-setTimeout(function(){ window.location.reload(); }, 1500);
 </script>
 <?php
 $_SESSION['logout'] = 0;
@@ -217,13 +216,13 @@ Start of HTML code with some PHP -->
 
 <div class="LoginBox w3-row w3-display-middle w3-container">
 
-<div class='w3-col l5 w3-container' style='width: 45%;'>
-<p class='w3-center' style="font-size: 2vw; margin-top: 0;">New Slayer</p>
+<div class='w3-col l5 w3-container w-45_'>
+<p class='web-login-title w3-center'>New Slayer</p>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="NewSBox">
 <input type="text" class="w3-input w3-center w3-opacity w3-large" name="name" placeholder="Enter your Nickname..." /><i><span class='w3-panel w3-text-white'><?php echo $nameError; ?></span></i>
-<input type="email" class="w3-input w3-center w3-opacity w3-large" name="email" style="margin-top: 0.5%;" placeholder="Enter your Email..." /><i><span class='w3-panel w3-text-white'><?php echo $emailError; ?></span></i>
-<input type="password" class="w3-input w3-center w3-opacity w3-large" name="pass" style="margin-top: 0.5%;" placeholder="Enter your Password..." /><i><span class='w3-panel w3-text-white'><?php echo $passError; ?></span></i>
+<input type="email" class="w3-input w3-center w3-opacity w3-large mt-0p5_" name="email" placeholder="Enter your Email..." /><i><span class='w3-panel w3-text-white'><?php echo $emailError; ?></span></i>
+<input type="password" class="w3-input w3-center w3-opacity w3-large mt-0p5_" name="pass" placeholder="Enter your Password..." /><i><span class='w3-panel w3-text-white'><?php echo $passError; ?></span></i>
 
     <?php
     if ( isset($errMSG_r) ) {
@@ -235,18 +234,18 @@ Start of HTML code with some PHP -->
     }
     ?>
 
-<input type="submit" value="Join us!" name="Register" class="w3-btn w3-white w3-opacity w3-round-xxlarge w3-xlarge w3-center" style="margin-top: 5%; width: 80%; margin-left: 10%;" />
+<input type="submit" value="Join us!" name="Register" class="web-login-register-button w3-btn w3-white w3-opacity w3-round-xxlarge w3-xlarge w3-center" />
 </form>
 </div>
 
 
 
-<div class='w3-right w3-col l5 w3-container' style='width: 45%;'>
-<p class='w3-center' style="font-size: 2vw; margin-top: 0;">Returning Slayer</p>
+<div class='w3-right w3-col l5 w3-container w-45_'>
+<p class='web-login-title w3-center'>Returning Slayer</p>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" class="ReturnSBox">
 <input type="text" class="w3-input w3-center w3-opacity w3-large" placeholder="Enter your Username..." name="username" /><i><span class='w3-panel w3-text-white'><?php echo $userError; ?></span></i>
-<input type="password" class="w3-input w3-center w3-opacity w3-large" style="margin-top: 0.5%;" placeholder="Enter your Password..." name="password" /><i><span class='w3-panel w3-text-white'><?php echo $passLogError; ?></span></i>
+<input type="password" class="w3-input w3-center w3-opacity w3-large mt-0p5_" placeholder="Enter your Password..." name="password" /><i><span class='w3-panel w3-text-white'><?php echo $passLogError; ?></span></i>
 
     <?php
     if ( isset($errMSG) ) {
@@ -258,7 +257,7 @@ Start of HTML code with some PHP -->
     }
     ?>
 
-<input type="submit" value="Login!" name="Login" class="w3-btn w3-white w3-opacity w3-round-xxlarge w3-xlarge w3-center" style="margin-top: 27%; margin-bottom: 0; width: 80%; margin-left: 6%;" />
+<input type="submit" value="Login!" name="Login" class="web-login-login-button w3-btn w3-white w3-opacity w3-round-xxlarge w3-xlarge w3-center" />
 </form>
 </div>
 

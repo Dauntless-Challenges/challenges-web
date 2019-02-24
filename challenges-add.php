@@ -83,14 +83,14 @@ mysqli_close($conn);
 
 
 
-<div class="w3-text-light-grey Oswald" style="width: 95%; margin: auto;">
+<div class="web-challenges-add-div w3-text-light-grey Oswald">
 
-<p class="w3-center" style="margin-top: -4%; font-size: 5vw;">Challenge Adding</p>
+<p class="web-challenges-add-title w3-center">Challenge Adding</p>
 
-<form method="post" action="" style="font-size: 1.5vw; margin-top: -2%;">
+<form method="post" action="" class="web-challenges-add-form">
 
   <div class="w3-row">
-	<div class="w3-col l2" style="padding: 0 2%;">
+	<div class="w3-col l2 p-0-2_">
 	<label for="run">Runs: </label><br />
 	<select class="w3-select w3-transparent w3-text-light-grey w3-center" name="run" id="run">
 		<?php while($row = mysqli_fetch_array($res_r, MYSQLI_ASSOC)) {
@@ -99,7 +99,7 @@ mysqli_close($conn);
 	</select>
 	</div>
 
-	<div class="w3-col l2" style="padding: 0 2%;">
+	<div class="w3-col l2 p-0-2_">
 	<label for="party">Parties: </label><br />
 	<select class="w3-select w3-transparent w3-text-light-grey w3-center" name="party" id="party">
 		<?php while($row = mysqli_fetch_array($res_p, MYSQLI_ASSOC)) {
@@ -108,7 +108,7 @@ mysqli_close($conn);
 	</select>
 	</div>
 
-	<div class="w3-col l2" style="padding: 0 2%;">
+	<div class="w3-col l2 p-0-2_">
 	<label for="difficulty">Difficulties: </label><br />
 	<select class="w3-select w3-transparent w3-text-light-grey w3-center" name="difficulty" id="difficulty">
 		<?php while($row = mysqli_fetch_array($res_d, MYSQLI_ASSOC)) {
@@ -119,12 +119,12 @@ mysqli_close($conn);
 
 	<!-- ///////////////////////////////////////////// -->
 
-	<div class="w3-col l3 w3-leftbar" style="padding: 0 2%;">
+	<div class="w3-col l3 w3-leftbar p-0-2_">
 	<label for="name">Challenge Name: </label><br />
 	<input type="text" class="w3-input w3-transparent w3-text-light-grey" name="name" id="name" required />
 	</div>
 
-	<div class="w3-col l3" style="padding: 0 2%;">
+	<div class="w3-col l3 p-0-2_">
 	<label for="description">Challenge Description: </label><br />
 	<input type="text" class="w3-input w3-transparent w3-text-light-grey" name="description" id="description" required />
 	</div>
@@ -136,13 +136,13 @@ mysqli_close($conn);
 
 
 
-  <div class="w3-row" style="margin-top: 5%;">
-	<div class="w3-col l2 w3-text-light-grey" style="padding: 0 2%;">
+  <div class="w3-row mt-5_">
+	<div class="w3-col l2 w3-text-light-grey p-0-2_">
 	<label for="exp">EXP Reward: </label><br />
 	<input type="number" class="w3-input w3-transparent w3-text-light-grey w3-center" name="exp" id="exp" required />
 	</div>
 
-	<div class="w3-col l2 w3-text-light-grey" style="padding: 0 2%;">
+	<div class="w3-col l2 w3-text-light-grey p-0-2_">
 	<label for="money">Currency Reward: </label><br />
 	<input type="number" class="w3-input w3-transparent w3-text-light-grey w3-center" name="money" id="money" required />
 	</div>
@@ -157,21 +157,21 @@ mysqli_close($conn);
 		<p> </p>
 	</div>
 
-	<div class="w3-col l3" style="padding: 0 2%;">
+	<div class="w3-col l3 p-0-2_">
 	<label for="date_start">Start Date: </label><br />
 	<input type="date" class="w3-input w3-transparent w3-text-light-grey" name="date_start" id="date_start" required />
 	</div>
 
-	<div class="w3-col l3" style="padding: 0 2%;">
+	<div class="w3-col l3 p-0-2_">
 	<label for="date_end">End Date: </label><br />
 	<input type="date" class="w3-input w3-transparent w3-text-light-grey" name="date_end" id="date_end" required />
 	</div>
   </div>
 
-  <div class='w3-center' style='margin-top: 4%;'>
+  <div class='w3-center mt-4_'>
 	<input type='submit' value='Add' name='Send' class='w3-btn w3-transparent w3-text-lime w3-border w3-border-lime w3-padding-large' />
-	<input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large' style='margin-left: 5%;' />
-	<a href="challenges-set.php" class="w3-bt w3-transparent w3-border w3-border-light-grey w3-text-light-grey w3-padding-large" style='margin-left: 5%; text-decoration: none;'>Back</a>
+	<input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large ml-5_' />
+	<a href="challenges-set.php" class="web-challenges-add-back w3-btn w3-transparent w3-border w3-border-light-grey w3-text-light-grey w3-padding-large">Back</a>
   </div>
 
 </form>

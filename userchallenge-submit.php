@@ -107,49 +107,49 @@ mysqli_close($conn);
 </script>
 
 
-<div class="w3-center Oswald" style="font-size: 1.25vw;">
+<div class="w3-center Oswald fs-1p25vw">
   <form class="w3-row" action="" method="post">
-	<p class="animation-target w3-display-top w3-border-bottom w3-border-black" style="font-size: 1.25vw; margin: -2% 40% 2% 40%;">Submit of Challenge: <?php echo $challengeRow['name']; ?></p>
+	<p class="web-challenges-submission-title animation-target w3-display-top w3-border-bottom w3-border-black">Submit of Challenge: <?php echo $challengeRow['name']; ?></p>
 	<input type="hidden" value="<?php echo $id; ?>" name="challenge" />
 
 
-	<div class="w3-half" style="margin-top: 5%;">
-	  <div class="w3-padding-large w3-round-xxlarge w3-text-white w3-row" style="margin: 0 30%; background-color: #570099;">	
-		<div class="w3-quarter" style="padding-top: 5%; padding-left: 10%;">
-			<img src="images/xp.png" style="width: 100%;" />
+	<div class="w3-half mt-5_">
+	  <div class="web-challenges-submission-card xp w3-padding-large w3-round-xxlarge w3-text-white w3-row">	
+		<div class="web-challenges-submission-image w3-quarter">
+			<img src="images/XP.png" class="w-100_" />
 		</div>
 		<div class="w3-rest">
 			<p>Exp: <?php echo $challengeRow['r_exp']; ?></p>
 		</div>
 	  </div>
 
-	  <div class="w3-padding-large w3-round-xxlarge w3-text-white w3-row" style="margin: 0 30%; margin-top: 5%; background-color: #b36b00;">
-	  <div class="w3-quarter" style="padding-top: 5%; padding-left: 10%;">
-			<img src="images/ct.png" style="width: 100%;" />
+	  <div class="web-challenges-submission-card ct w3-padding-large w3-round-xxlarge w3-text-white w3-row mt-5_">
+	  <div class="web-challenges-submission-image w3-quarter">
+			<img src="images/CT.png" class="w-100_" />
 		</div>
 		<div class="w3-rest">
 			<p>Money: <?php echo $challengeRow['r_money']; ?></p>
 		</div>
 	  </div>
 
-	  <div class="w3-black w3-padding-large w3-round-xxlarge w3-opacity-min" style="margin: 15% 20% 0 20%; font-size: 1.5vw;">
+	  <div class="web-challenges-submission-buttons w3-black w3-padding-large w3-round-xxlarge w3-opacity-min">
 		<input type='submit' <?php if($userChallengeRow['state'] == 1) echo "value='Re-Submit'"; else echo "value='Submit'"; ?> name='Submit' class='w3-btn w3-transparent w3-text-teal w3-border w3-border-teal w3-padding-large' />
-		<input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large' style='margin-left: 5%;' />
-		<a href="public-challenges.php" class="w3-btn w3-transparent w3-text-light-grey w3-border w3-border-flat-light-grey w3-padding-large" style='margin-left: 10%;'>Back</a>
+		<input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large ml-5_' />
+		<a href="public-challenges.php" class="w3-btn w3-transparent w3-text-light-grey w3-border w3-border-flat-light-grey w3-padding-large ml-10_">Back</a>
 	  </div>
 	</div>
 
 
-	<div class="w3-half w3-text-light-grey w3-padding-large" style="margin-top: 2%;">
-	 <div class="w3-black w3-round-xxlarge w3-opacity-min" style="padding: 5%;">
+	<div class="w3-half w3-text-light-grey w3-padding-large mt-2_">
+	 <div class="w3-black w3-round-xxlarge w3-opacity-min p-5_">
 		<p style="margin-top: -2%;">Evidence: </p>
-		<input type="url" placeholder="Insert link to the proof..." <?php if($userChallengeRow['state'] == 1) echo "value='". $userChallengeRow['proof'] ."'"; ?> name="proof" class="w3-input w3-transparent w3-text-light-grey" style="width: 80%; margin-left: 10%;" />
+		<input type="url" placeholder="Insert link to the proof..." <?php if($userChallengeRow['state'] == 1) echo "value='". $userChallengeRow['proof'] ."'"; ?> name="proof" class="web-challenges-submission-proof w3-input w3-transparent w3-text-light-grey" />
 
-		<div style="margin-top: 10%;">
+		<div class="mt-10_">
 			<p>Feedback: </p>
 			<textarea placeholder="Fill the Feedback for us..." rows="4" cols="50" name="note" onKeyDown="limitText(this.form.note,this.form.countdown,255);" 
-onKeyUp="limitText(this.form.note,this.form.countdown,255);" class="w3-transparent w3-border-0 w3-leftbar w3-text-light-grey" style="width: 80%; resize: none; height: 14rem; padding-left: 2%;"><?php if($userChallengeRow['state'] == 1) echo $userChallengeRow['note']; ?></textarea>
-			<input class="w3-input w3-transparent w3-text-light-grey w3-center" name="countdown" value="<?php echo $noteValue; ?>" style="width: 10%; margin-left: 45%;" /> characters left
+onKeyUp="limitText(this.form.note,this.form.countdown,255);" class="web-challenges-submission-note w3-transparent w3-border-0 w3-leftbar w3-text-light-grey"><?php if($userChallengeRow['state'] == 1) echo $userChallengeRow['note']; ?></textarea>
+			<input class="web-challenges-submission-note-count w3-input w3-transparent w3-text-light-grey w3-center" name="countdown" value="<?php echo $noteValue; ?>" /> characters left
 		</div>
 	 </div>
 	</div>

@@ -60,7 +60,7 @@ swal({
   allowOutsideClick: true,
   showCloseButton: true,
   html: '<p class="w3-margin-bottom">Rather submit your impressive run or abandon the Challenge with shame on your back xD</p>' +
-		'<div class="w3-center"><form action="userchallenge-assign.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #007acc;">I am in!</button></form></div>'
+		'<div class="w3-center"><form action="userchallenge-assign.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #007acc;"><i class="fas fa-chess-rook"></i>&nbsp; I am in!</button></form></div>'
 });
 }
 
@@ -76,8 +76,8 @@ swal({
   allowOutsideClick: true,
   showCloseButton: true,
   html: '<p class="w3-margin-bottom">Rather submit your impressive run or abandon the Challenge with shame on your back xD</p>' +
-		'<div class="w3-row"><div class="w3-half"><form action="userchallenge-submit.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #006666;">' + y + '</button></form></div>' +
-		'<div class="w3-half"><form action="userchallenge-remove.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #d33;">Abandon!!</button></form></div></div>'
+		'<div class="w3-row"><div class="w3-half"><form action="userchallenge-submit.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #006666;"><i class="far fa-calendar-alt"></i>&nbsp; ' + y + '</button></form></div>' +
+		'<div class="w3-half"><form action="userchallenge-remove.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #d33;"><i class="far fa-calendar-minus"></i>&nbsp; Abandon!!</button></form></div></div>'
 });
 }
 </script>
@@ -92,9 +92,9 @@ swal({
     <button class='fa fa-chevron-right w3-btn w3-transparent' onclick="plusDivs(1);"></button>
 </div>
 
-<div class="w3-display-middle Oswald" style="margin-top: -15%;">
+<div class="w3-display-middle Oswald" style="margin-top: -16%;">
   <div>
-	<p class="animation-target w3-border-bottom w3-border-black w3-center" style="font-size: 1.1vw; margin: 8% 15%;">ACTIVE CHALLENGES</p>
+	<p class="animation-target w3-border-bottom w3-border-black w3-center" style="font-size: 1.1vw; margin: 15%;">ACTIVE CHALLENGES</p>
 
 	<?php
         $exp = ($profileRow['exp'] / getBadgeEXP($profileRow['id_badge']))*100;
@@ -138,9 +138,9 @@ swal({
 	<button class='fa fa-chevron-left w3-btn w3-transparent' onclick="plusDivs(-1);"></button>
 </div>
 
-<div class="w3-display-middle Oswald" style="margin-top: -15%;">
+<div class="w3-display-middle Oswald" style="margin-top: -16%;">
   <div>
-	<p class="animation-target w3-border-bottom w3-border-black w3-center" style="font-size: 1.1vw; margin: 8% 15%;">TAKEN CHALLENGES</p>
+	<p class="animation-target w3-border-bottom w3-border-black w3-center" style="font-size: 1.1vw; margin: 15%;">TAKEN CHALLENGES</p>
 
 	<?php
         $exp = ($profileRow['exp'] / getBadgeEXP($profileRow['id_badge']))*100;
