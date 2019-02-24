@@ -65,21 +65,24 @@ $_SESSION['log'] = 0;
 
 <div class="w3-row mySlides">
 
-<div class="TavernBox w3-quarter w3-container" style="font-size: 1.75vw;">
-<p class='w3-center'>Welcome <?php echo $userRow['name']; ?>!</p>
+<div class="TavernBox w3-quarter w3-container fs-1p5vw w3-center">
+<p class='w3-center mb-0 PasseroOne fs-1p75vw'>Welcome <?php echo $userRow['name']; ?>!</p>
 
-<a href="public-challenges.php" class="w3-btn w3-transparent w3-round-large w3-text-black" style="padding: 0 25%; margin-left: 1%; outline: none;">- Challenges</a>
+<hr class="web-tavern-hr" />
 
-<p>- Speedrunning UwU</p>
+<div class="mb-10_"><a href="public-challenges.php" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-tasks"></i>&nbsp; Challenges</a><br /></div>
 
-<a href="profile.php" class="w3-btn w3-transparent w3-round-large w3-text-black" style="padding: 0 22%; margin-left: 2%; outline: none;">- Profile Page</a>
+<div class="mb-10_"><a href="#" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-stopwatch"></i>&nbsp; Speedrunning UwU</a><br /></div>
 
-<p>- Leaderboard</p>
+<div class="mb-10_"><a href="profile.php" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="far fa-user-circle"></i>&nbsp; Profile Page</a><br /></div>
+
+<div class="mb-5_"><a href="#" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-list-ol"></i>&nbsp; Leaderboard</a></div>
 </div>
 
+<div class="w3-col l4"><p> </p></div>
 
-<div class="w3-quarter w3-center w3-text-white" style="margin-left: 4%;">
-	<p style="font-size: 1.25vw;"><u>Notifications</u></p>
+<div class="w3-quarter w3-center w3-text-white ml-4">
+	<p class="ml-10_ fs-1p25vw"><u>Notifications</u></p>
 
 	<?php
 	//if(isset($_SESSION['challenge_approved'])) {
@@ -101,11 +104,11 @@ $_SESSION['log'] = 0;
 	<form action="" method="post" class="Oswald hvr-hang">
 	<?php if($notificationRow['decision'] == 1)
 		echo '<button class="w3-btn w3-panel w3-display-container w3-card-2 w3-round-xlarge w3-row w3-center toast_success" value="'. $notificationRow['id_challenge'] .'" name="id">
-			<p style="font-size: 0.9vw;"><span class="fa fa-calendar-check-o" style="font-size: 1.25vw;"></span> &nbsp; Your challenge: <b>'. getChallenge($notificationRow['id_challenge']) .'</b> has been approved and counted for you :3</p>
+			<p style="font-size: 0.9vw;"><span class="far fa-calendar-check" style="font-size: 1.25vw;"></span> &nbsp; Your challenge: <b>'. getChallenge($notificationRow['id_challenge']) .'</b> has been approved and counted for you :3</p>
 		</button>';
 	  else 
 		echo '<button class="w3-btn w3-panel w3-display-container w3-card-2 w3-round-xlarge w3-row w3-center toast_deny" value="'. $notificationRow['id_challenge'] .'" name="id">
-			<p style="font-size: 0.9vw;"><span class="fa fa-calendar-check-o" style="font-size: 1.25vw;"></span> &nbsp; Your challenge: <b>'. getChallenge($notificationRow['id_challenge']) .'</b> has been denied and resetted for submission :C</p>
+			<p style="font-size: 0.9vw;"><span class="far fa-calendar-times" style="font-size: 1.25vw;"></span> &nbsp; Your challenge: <b>'. getChallenge($notificationRow['id_challenge']) .'</b> has been denied and resetted for submission :C</p>
 		</button>';
 	?>
 	</form>
@@ -113,14 +116,19 @@ $_SESSION['log'] = 0;
 </div>
 
 
-<div class="w3-half w3-card-4 w3-round-xlarge w3-right midnight-blue" style="position: relative; width: 30%; margin-right: 10%; margin-left: 5%;">
+<!--<div class="w3-half w3-card-4 w3-round-xlarge w3-right midnight-blue" style="position: relative; width: 30%; margin-right: 10%; margin-left: 5%;">
 	<img src="http://ecard.enter-media.org/upload/iblock/9dc/9dc8991684a93b20ef0586d6afff3d5d.png" alt="Ribbon Banner" style="width: 100%; position:absolute;" />
 
 	<div class="w3-padding-large w3-center" style="margin-top: 8%; font-size: 0.8vw;">
-		<p class="animation-target PasseroOne" style="margin-top: 2%; font-size: 1vw;">Update v1.0.0</p>
-		<p style="margin-top: 2%;"><br />IT'S HERE, FIRST VERSION FOR TESTING IS UP!!!!<br /><br />Added some cool features ya know, explore them :P<br />They are  basically all around the site so what are you waiting for xD</p>
+		<p class="animation-target PasseroOne" style="margin-top: 2%; font-size: 1vw;">Update v1.1.0</p>
+		<p class="Oswald" style="margin-top: 2%;"><br />
+			<u>IT'S HERE, FIRST VERSION FOR TESTING IS UP!!!!</u><br /><br />
+			Finished Profile Edit functions for all users to change their profiles how they want to :P<br /><br />
+			Nevertheless I also improved scaling of some elements on smaller screens so they won't appear as big as they used to be (Like the old Support Us page)!!<br /><br /><br /><br />
+			Your Developer,<br />
+			<i>Melioo [Erii]</i></p>
 	</div>
-</div>
+</div>-->
 
 
 
@@ -133,15 +141,15 @@ $_SESSION['log'] = 0;
 </div>
 
 <?php if($userRow['permission'] == 1) { ?>
-<div class="w3-container mySlides w3-text-white Oswald" style="display: none;">
+<div class="w3-container mySlides w3-text-white Oswald d-none">
     <div class='w3-display-left w3-xxxlarge'>
     <button class='fa fa-chevron-left w3-btn w3-transparent' onclick="plusDivs(-1);"></button>
     </div>
     
     <div id="Panel">
-    <p class="animation-target w3-center" style="margin-top: -2%; font-size: 2vw;">Admin Panel</p>
+    <p class="web-admin-title animation-target w3-center">Admin Panel</p>
     
-    <div class="w3-row" style="margin-top: 4%;">
+    <div class="w3-row mt-4_">
         <p class="w3-col l2"> </p>
         <?php
             AdminButton("titles");
@@ -149,7 +157,7 @@ $_SESSION['log'] = 0;
             AdminButton("parties");
         ?>
     </div>
-    <div class="w3-row" style="margin-top: 4%;">
+    <div class="w3-row mt-4_">
         <p class="w3-col l2"> </p>
         <?php
             AdminButton("difficulties");
@@ -157,12 +165,12 @@ $_SESSION['log'] = 0;
             AdminButton("weapons");
         ?>
     </div>
-    <div class="w3-row" style="margin-top: 4%;">
+    <div class="w3-row mt-4_">
         <p class="w3-col l2"> </p>
-        <a href="challenges-set.php" class="w3-col l2 w3-btn w3-transparent w3-round-large w3-border w3-border-white w3-padding-large w3-hover-teal" style="font-size: 2vw;">Challenges</a>
+        <a href="challenges-set.php" class="w3-col l2 w3-btn w3-transparent w3-round-large w3-border w3-border-white w3-padding-large w3-hover-teal fs-2vw">Challenges</a>
         <p class="w3-col l1"> </p>
 		<?php AdminButton("behemoths"); ?>
-        <a href="#" class="w3-col l2 w3-btn w3-transparent w3-round-large w3-border w3-border-white w3-padding-large w3-hover-teal" style="font-size: 2vw;">Profiles</a>
+        <a href="#" class="w3-col l2 w3-btn w3-transparent w3-round-large w3-border w3-border-white w3-padding-large w3-hover-teal fs-2vw">Profiles</a>
         <p class="w3-col l1"> </p>
     </div>
     </div>

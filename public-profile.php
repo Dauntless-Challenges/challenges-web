@@ -31,8 +31,11 @@ $conn = connect_db();
 
 $sql = "SELECT * FROM `profiles` WHERE id_user=". getUserID($user);
 $result = mysqli_query($conn, $sql);
-
 if($result != "") $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+$sql = "SELECT * FROM userchallenges WHERE state=2 AND id_user=". $_SESSION['user'];
+$res_ch = mysqli_query($conn, $sql);
+$count_ch = mysqli_num_rows($res_ch);
 
 mysqli_close($conn);
 
@@ -45,6 +48,12 @@ $date_user = date_create(date('Y-m-d H:i:s', strtotime($row['date'])));
 $date_now = date_create(date('Y-m-d H:i:s', strtotime("now")));
 
 $ago = date_diff($date_now, $date_user);
+
+// ------------------------------
+
+
+if($row['clanbg'] == 0) $clanBg = "background-color: #532d2d;";
+else $clanBg = "background-image: url('". getClanBg($row['clanbg']) ."');";
 
 
 /* First logical operations as result from the SQL Query
@@ -90,14 +99,14 @@ function ProfileStats() {
 <div class="ProfileBox w3-display-middle w3-container w3-row">
 
 <div class='w3-col l3 w3-center'>
-	<div class="badgeBg">
+	<div class="badgeBg" style="<?php echo $clanBg; ?>">
 		<img  class="w3-padding" id="badge" src="images/shield.png" alt="Shield" style="width: 70%;">
 	</div>
 
 	<p class='ProfileName w3-padding w3-card-2 PasseroOne'><?php echo getUser($row['id_user']); ?> [<?php if($row['id_guild'] != 0) echo getGuild($row['id_guild']); else echo "No Guild"; ?>]</p>
 	<p class='ProfileTitle w3-padding w3-card-4 PasseroOne'><?php echo getTitle($row['id_title']); ?></p>
 
-	<p style="margin-top: 20%; font-size: 1.25vw;"><i>Member for <?php /*echo date('F dS, Y \a\t h:mA', strtotime($row['date']));*/ echo $ago->format("%m months and %d days"); ?></i></p>
+	<p class="w3-tooltip" style="margin-top: 20%; font-size: 1.25vw; position: relative"><span class="brand-dark-blue w3-round-xxlarge w3-animate-opacity w3-padding w3-text w3-tag" style="font-size: 1vw; position: absolute; bottom: 100%; right: 8%;"><i>Since <?php echo date('F jS, Y \a\t h:mA', strtotime($row['date'])); ?></i></span>Member for <u><?php echo $ago->format("%m months and %d days"); ?></u></p>
 </div>
 
 <div class="w3-col l7" id="ProfileNotes" style="margin: auto;">
@@ -113,7 +122,7 @@ function ProfileStats() {
         echo "<span style='font-size: 1.25vw;'>Current EXP: &nbsp ". $row['exp'] ." / ". getBadgeEXP($row["id_badge"]) ." (". round($exp, 1) ."%)</span>";
 	} else echo "<span style='font-size: 1.25vw;'>Current EXP: &nbsp A lot</span>";
     ?>
-	<div class="w3-ligh-grey w3-opacity w3-border w3-border-black w3-round-xlarge">
+	<div class="w3-opacity w3-border w3-border-black w3-round-xlarge">
         <?php if(getUserPerm($row['id_user']) == 0) echo '<div class="w3-container w3-round-xlarge" style="background-color: #570099; height: 1.75rem; width:'. $exp .'%; max-width: 100%;"></div>';
 			else echo '<div class="w3-container w3-round-xlarge" style="background-color: #570099; height: 1.75rem; width:100%;"></div>'; ?>
     </div>
@@ -137,7 +146,7 @@ function ProfileStats() {
 <div class="w3-row">
 <div class="w3-half">
     <p>Most Recent Challenge: &nbsp; <span style="font-size: 1.75vw;"><br /><?php echo getChallenge($row['id_challenge']); ?></span></p>
-    <p style="margin-top: 5%;">Completed Challenges: &nbsp; <span style="font-size: 1.75vw;"><?php echo $row['ch_done']; ?></span></p>
+    <p style="margin-top: 5%;">Completed Challenges: &nbsp; <span style="font-size: 1.75vw;"><?php echo $count_ch; ?></span></p>
     <p>Speedruns on Board: &nbsp; <span style="font-size: 1.75vw;"><?php echo $row['sp_board']; ?></span></p>
 </div>
 

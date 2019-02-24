@@ -68,31 +68,31 @@ if ($res) {
 
 <div class="w3-row w3-text-light-grey Oswald">
 
-<p class="w3-center" style="margin-top: -4%; font-size: 5vw;">Title Adding</p>
+<p class="web-feature-title w3-center">Title Adding</p>
 
-<div class="w3-half w3-center w3-text-black" style="width: 20%; margin-left: 20%;">
-	<p class="w3-text-light-grey" style="font-size: 1.5vw; margin-left: -25%;">Live example: </p>
+<div class="web-feature-live-div w3-half w3-center w3-text-black">
+	<p class="web-feature-live w3-text-light-grey">Live example: </p>
 
 	<p class='ProfileName w3-padding PasseroOne'><?php echo getUser($_SESSION['user']); ?></p>
-	<p class='ProfileTitle w3-padding w3-card-4 PasseroOne' style="margin-top: -13%; width: 60%;" id="result"> </p>
+	<p class='ProfileTitle web-feature-live-title w3-padding w3-card-4 PasseroOne' id="result"> </p>
 </div>
 
 <div class="w3-half">
 <form method="post" action="">
-	<div style="margin-left: 20%; margin-top: -8%;">
-	<b><label for="name" style="font-size: 1.5vw;">Title Name: </label></b>
-	<input type="text" class="w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." maxlength="20" name="name" id="name" style="width: 30%; max-width: 40%; font-size: 1.25vw;" required />
+	<div class="web-feature-titles-div">
+	<b><label class="fs-1p5vw" for="name">Title Name: </label></b>
+	<input type="text" class="web-feature-single-form-element w3-input w3-animate-input w3-transparent w3-text-light-grey w3-center w3-margin-top" placeholder="Fill in the Name..." maxlength="20" name="name" id="name" required />
 	
-	<div style="margin-top: 5%;">
-	<b><label for="note" class="w3-text-light-grey" style="font-size: 2vw;">Title Description: </label></b><br />
-	<textarea class="w3-transparent w3-text-light-grey w3-border-0 w3-leftbar" onKeyDown="limitText(this.form.note,this.form.countdown,255);" 
-onKeyUp="limitText(this.form.note,this.form.countdown,255);" name="note" id="note" style="width: 60%; resize: none; height: 10rem; padding-left: 2%; font-size: 1vw;"></textarea>
-	<input class="w3-input w3-transparent w3-text-light-grey w3-center" name="countdown" value="255" style="width: 10%;" /> characters left
+	<div class="mt-5_">
+	<b><label for="note" class="w3-text-light-grey fs-1p5vw">Title Description: </label></b><br />
+	<textarea class="web-feature-single-note w3-transparent w3-text-light-grey w3-border-0 w3-leftbar" onKeyDown="limitText(this.form.note,this.form.countdown,255);" 
+onKeyUp="limitText(this.form.note,this.form.countdown,255);" name="note" id="note"></textarea>
+	<input class="w3-input w3-transparent w3-text-light-grey w3-center w-10_" name="countdown" value="255" /> characters left
 	</div>
 
-	<div class='w3-center' style='margin-top: 4%; margin-left: -40%; font-size: 1.5vw;'>
+	<div class='web-feature-single-buttons w3-center'>
 			<input type='submit' value='Add' name='Send' class='w3-btn w3-transparent w3-text-lime w3-border w3-border-lime w3-padding-large' />
-            <input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large' style='margin-left: 10%;' />
+            <input type='reset' value='Reset' class='w3-btn w3-transparent w3-text-red w3-border w3-border-red w3-padding-large ml-10_' />
 		</div>
 
 	</div>
