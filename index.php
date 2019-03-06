@@ -9,7 +9,6 @@ session_start();
  if ( isset($_SESSION['user']) ) {
   $_SESSION['logged'] = 1;
   header("Location: tavern.php");
-  echo "<meta http-equiv='refresh' content='0; url=tavern.php'>";
   exit;
  }
 

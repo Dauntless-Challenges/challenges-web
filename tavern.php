@@ -85,7 +85,6 @@ $_SESSION['log'] = 0;
 	<p class="ml-10_ fs-1p25vw"><u>Notifications</u></p>
 
 	<?php
-	//if(isset($_SESSION['challenge_approved'])) {
 		$conn = connect_db();
 		$sql = "SELECT * FROM notifications WHERE id_user=". $_SESSION['user'];
 		$res_n = mysqli_query($conn, $sql);
@@ -112,24 +111,8 @@ $_SESSION['log'] = 0;
 		</button>';
 	?>
 	</form>
-	<?php } //} ?>
+	<?php } ?>
 </div>
-
-
-<!--<div class="w3-half w3-card-4 w3-round-xlarge w3-right midnight-blue" style="position: relative; width: 30%; margin-right: 10%; margin-left: 5%;">
-	<img src="http://ecard.enter-media.org/upload/iblock/9dc/9dc8991684a93b20ef0586d6afff3d5d.png" alt="Ribbon Banner" style="width: 100%; position:absolute;" />
-
-	<div class="w3-padding-large w3-center" style="margin-top: 8%; font-size: 0.8vw;">
-		<p class="animation-target PasseroOne" style="margin-top: 2%; font-size: 1vw;">Update v1.1.0</p>
-		<p class="Oswald" style="margin-top: 2%;"><br />
-			<u>IT'S HERE, FIRST VERSION FOR TESTING IS UP!!!!</u><br /><br />
-			Finished Profile Edit functions for all users to change their profiles how they want to :P<br /><br />
-			Nevertheless I also improved scaling of some elements on smaller screens so they won't appear as big as they used to be (Like the old Support Us page)!!<br /><br /><br /><br />
-			Your Developer,<br />
-			<i>Melioo [Erii]</i></p>
-	</div>
-</div>-->
-
 
 
 <?php if($userRow['permission'] == 1) { ?>

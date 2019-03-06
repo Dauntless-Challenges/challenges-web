@@ -94,20 +94,22 @@ swal({
 
 <div class="w3-display-middle Oswald" style="margin-top: -16%;">
   <div>
-	<p class="animation-target w3-border-bottom w3-border-black w3-center" style="font-size: 1.1vw; margin: 15%;">ACTIVE CHALLENGES</p>
+	<p class="web-challenges-public-title animation-target w3-border-bottom w3-border-black w3-center">ACTIVE CHALLENGES</p>
 
 	<?php
-        $exp = ($profileRow['exp'] / getBadgeEXP($profileRow['id_badge']))*100;
-        echo "<span style='font-size: 1vw;'>Current EXP: &nbsp ". $profileRow['exp'] ." / ". getBadgeEXP($profileRow["id_badge"]) ." (". round($exp, 1) ."%)</span>";
+        $diffexp = (getBadgeEXP($profileRow['id_badge']) - getBadgeEXP($profileRow['id_badge']-1));
+				$lowerexp = ($profileRow['exp'] - getBadgeEXP($profileRow['id_badge']-1));
+				$exp = ($lowerexp / $diffexp)*100;
+        echo "<span class='fs-1vw'>Current EXP: &nbsp ". $profileRow['exp'] ." / ". getBadgeEXP($profileRow["id_badge"]) ." (". round($exp, 2) ."%)</span>";
     ?>
 	<div class="w3-ligh-grey w3-border w3-border-black w3-round-xlarge">
-        <div class="w3-container w3-round-xlarge" style="background-color: #570099; height: 1.25rem; width:<?php echo $exp; ?>%; max-width: 100%;"></div>
+        <div class="web-challenges-public-exp w3-container w3-round-xlarge" style="width:<?php echo $exp; ?>%;"></div>
     </div>
   </div>
 </div>
 
 
-  <div class="w3-row" style="margin-top: 5%; margin-left: 12%;">
+  <div class="web-challenges-public-div w3-row">
 	<?php
 		while($challengesRow = mysqli_fetch_array($result_ch, MYSQLI_ASSOC)) {
 		
@@ -132,7 +134,7 @@ swal({
 </div>
 
 
-<div class="mySlides" style="display: none;">
+<div class="mySlides d-none">
 
 <div class='w3-display-left w3-xxxlarge w3-text-white'>
 	<button class='fa fa-chevron-left w3-btn w3-transparent' onclick="plusDivs(-1);"></button>
@@ -140,19 +142,21 @@ swal({
 
 <div class="w3-display-middle Oswald" style="margin-top: -16%;">
   <div>
-	<p class="animation-target w3-border-bottom w3-border-black w3-center" style="font-size: 1.1vw; margin: 15%;">TAKEN CHALLENGES</p>
+	<p class="web-challenges-public-title animation-target w3-border-bottom w3-border-black w3-center">TAKEN CHALLENGES</p>
 
 	<?php
-        $exp = ($profileRow['exp'] / getBadgeEXP($profileRow['id_badge']))*100;
-        echo "<span style='font-size: 1vw;'>Current EXP: &nbsp ". $profileRow['exp'] ." / ". getBadgeEXP($profileRow["id_badge"]) ." (". round($exp, 1) ."%)</span>";
+        $diffexp = (getBadgeEXP($profileRow['id_badge']) - getBadgeEXP($profileRow['id_badge']-1));
+				$lowerexp = ($profileRow['exp'] - getBadgeEXP($profileRow['id_badge']-1));
+				$exp = ($lowerexp / $diffexp)*100;
+        echo "<span class='fs-1vw'>Current EXP: &nbsp ". $profileRow['exp'] ." / ". getBadgeEXP($profileRow["id_badge"]) ." (". round($exp, 2) ."%)</span>";
     ?>
 	<div class="w3-ligh-grey w3-border w3-border-black w3-round-xlarge">
-        <div class="w3-container w3-round-xlarge" style="background-color: #570099; height: 1.25rem; width:<?php echo $exp; ?>%; max-width: 100%;"></div>
+        <div class="web-challenges-public-exp w3-container w3-round-xlarge" style="width:<?php echo $exp; ?>%;"></div>
     </div>
   </div>
 </div>
 
- <div class="w3-row" style="margin-top: 5%; margin-left: 12%;">
+ <div class="web-challenges-public-div w3-row">
 	<?php
 		while($challengesRow = mysqli_fetch_array($result_ch2, MYSQLI_ASSOC)) {	
 		

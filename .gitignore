@@ -3,6 +3,7 @@ db.php
 
 #editor files
 .vs/
+.vscode/
 
 # Logs
 logs

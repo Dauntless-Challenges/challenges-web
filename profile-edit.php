@@ -133,10 +133,10 @@ else $clanBg = "background-image: url('". getClanBg($row_p['clanbg']) ."');";
 			<?php 
 			if($count_c < 1) echo "<option value=''>Default</option>";
 			else {
-			echo "<option value=''>Default</option>";
+			echo "<option value='none'>Default</option>";
 			while($row = mysqli_fetch_array($res_c, MYSQLI_ASSOC)) {
-				if($row['id_color'] == $row_p['color']) echo "<option class='w3-text-black' value='". $row['id_color'] ."' selected>". getColor($row['id_color']) ."</option>";
-				else echo "<option class='w3-text-black' value='". $row['id_color'] ."'>". getColor($row['id_color']) ."</option>";
+				if($row['id_color'] == $row_p['color']) echo "<option class='w3-text-black' value='". $row['id_color'] ."' selected>". getColorName($row['id_color']) ."</option>";
+				else echo "<option class='w3-text-black' value='". $row['id_color'] ."'>". getColorName($row['id_color']) ."</option>";
 			}
 			}
 			?>
