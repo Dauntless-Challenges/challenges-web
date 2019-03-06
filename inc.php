@@ -338,17 +338,16 @@ echo <<<END
 
 <div class='w3-display-middle LandingBox w3-container w3-center fs-1p25vw'>
 
-<p class="fs-2p5vw">Welcome Slayers</p>
+<p class="fs-1p75vw">Welcome Slayers...</p>
 
-<p>It seems you have climbed to the top, defeated the most dangerous of behemoths and have ran out of challenges. . . 
+<p>...Ramsgate slayers are among the strongest of their kind. They seek to not only do their job, they also seek to do so in the most dangerous of environments. Some call it foolish, others call it brave. Regardless, one has to admire their spirits.</p>
 
-<br />Well, it seems you have come to the right place. We dont serve normal hunts here. All hunts presented are deadly or worse!
+<p>Yet they still have their own issues. Ramsgate is safer than ever before with the influx of slayers and the newly improved gear isnt helping the challenges either.<br />
+Slayers have taken it upon themselves to create their own challenges. Proving their worth not by the strength of the monster alone but also the conditions in which they fight!</p>
 
-<br /><br />Your reward for surviving these challenges? 
-<br />Bragging rights.
-<br />We keep track of both the solo and team challenges to make sure you always have something to brag about to others.
+<br /><p><i>"You, dear slayer, look ready for such a challenge. I can see it in your eyes. The flames, the willpower. Yes, you are exactly the kind to rise to the top. Now, have a look, pick a challenge, show us your skills..."</i></p>
 
-<br /><br />Do you think you've got what it takes?</p>
+<img class="web-landing-image" src="https://gamepedia.cursecdn.com/dauntless_gamepedia_en/thumb/f/fe/Gregario_Flynt_Render_001.png/1200px-Gregario_Flynt_Render_001.png" alt="Stranger" width="8%" />
 
 <div id="badge">
 <a href="login.php" class="text-deco-none">
@@ -490,6 +489,27 @@ mysqli_close($conn);
         </form>
     </div>
 
+<?php
+}
+
+
+
+
+function InfoCard() {
+?>
+<div class="w3-half w3-card-4 w3-round-xlarge w3-right midnight-blue" style="position: relative; width: 30%; margin-right: 10%; margin-left: 5%;">
+	<img src="http://ecard.enter-media.org/upload/iblock/9dc/9dc8991684a93b20ef0586d6afff3d5d.png" alt="Ribbon Banner" style="width: 100%; position:absolute;" />
+
+	<div class="w3-padding-large w3-center" style="margin-top: 8%; font-size: 0.8vw;">
+		<p class="animation-target PasseroOne" style="margin-top: 2%; font-size: 1vw;">Update v1.1.0</p>
+		<p class="Oswald" style="margin-top: 2%;"><br />
+			<u>IT'S HERE, FIRST VERSION FOR TESTING IS UP!!!!</u><br /><br />
+			Finished Profile Edit functions for all users to change their profiles how they want to :P<br /><br />
+			Nevertheless I also improved scaling of some elements on smaller screens so they won't appear as big as they used to be (Like the old Support Us page)!!<br /><br /><br /><br />
+			Your Developer,<br />
+			<i>Melioo [Erii]</i></p>
+	</div>
+</div>
 <?php
 }
 
@@ -758,16 +778,7 @@ echo "<body class=". $body_class .">";
  <?php 
  if(isset($_SESSION['user'])) {
 
- $conn = connect_db();
-
- $sql = "SELECT * FROM users WHERE id_user=". $_SESSION['user'];
- $res = mysqli_query($conn, $sql);
- $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
-
- mysqli_close($conn);
-
-
- if($userRow['permission'] == 1) {
+ if(getUserPerm($_SESSION['user']) == 1) {
 
  $conn = connect_db();
 
@@ -1044,7 +1055,7 @@ return nl2br($gotValue['name']);
 
 // ------------------------------
 
-function getColor($id) {
+function getColorName($id) {
 $conn = connect_db();
 
 $sql='SELECT name FROM colors WHERE id_color="'. $id .'"';
@@ -1056,6 +1067,21 @@ $gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
 
 return nl2br($gotValue['name']);
 }
+
+// ------------------------------
+
+function getColor($id) {
+    $conn = connect_db();
+    
+    $sql='SELECT color FROM profiles WHERE id_user="'. $id .'"';
+    $sql_res = mysqli_query($conn, $sql);
+    
+    mysqli_close($conn);
+    
+    $gotValue = mysqli_fetch_array($sql_res, MYSQLI_ASSOC);
+    
+    return nl2br($gotValue['color']);
+    }
 
 // ------------------------------
 

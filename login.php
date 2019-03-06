@@ -44,7 +44,7 @@ require_once 'inc.php';
 // ------------------------------
 
 
-// Registration PHP function [Not functional for now]
+// Registration PHP function
 
  $error = false;
  
@@ -75,6 +75,24 @@ require_once 'inc.php';
    $nameError = "Name must contain alphabets and space.";
   }
   
+  $conn = connect_db();
+  $sql = "SELECT * FROM users WHERE name='". $name ."'";
+  $res_u = mysqli_query($conn, $sql);
+  $nameCount = mysqli_num_rows($res_u);
+
+  $sql = "SELECT * FROM users WHERE email='". $email ."'";
+  $res_u = mysqli_query($conn, $sql);
+  $emailCount = mysqli_num_rows($res_u);
+  mysqli_close($conn);
+
+  if($nameCount == 1) {
+   $error = true;
+   $nameError = "This name uses someone else.";
+  } else if ($emailCount == 1) {
+   $error = true;
+   $emailError = "This email uses someone else.";
+  }
+  
   // password validation
   if (empty($pass)){
    $error = true;
@@ -90,24 +108,32 @@ require_once 'inc.php';
   // if there's no error, continue to signup
   if( !$error ) {
    
-   $sql = "INSERT INTO `users` (name,email,password,permission,note) VALUES ('". $name ."','". $email ."','". $password ."',0,' ')";
-   $res = mysqli_query($conn, $sql);
+   $conn = connect_db();
+
+   $sql = "SELECT * FROM users";
+   $res_id = mysqli_query($conn, $sql);
+   $rowCount = mysqli_num_rows($res_id);
+   $rowCount = $rowCount + 1;
+
+
+   $sql = "INSERT INTO `users` (name,email,password,note) VALUES ('". $name ."','". $email ."','". $password ."',' ')";
+   $res_ui = mysqli_query($conn, $sql);
+
+   $sql = "INSERT INTO profiles (id_user,note) VALUES (". $rowCount .",' ')";
+   $res_pi = mysqli_query($conn, $sql);
+
+   mysqli_close($conn);
+  
+
+   // FIXME: Pop-up doesnt appear because condition doesnt run through
+   if($res_ui && $res_pi) {
+    $_SESSION['registered'] = 1;
     
-   if ($res) {
-?>
-<script>
-swal({
-  title: "Successfully registrered!",
-  text: "Everything is ready!",
-  type: "success",
-  showConfirmButton: false,
-  timer: 2000
-});
-</script>
-<?php
     unset($name);
     unset($email);
     unset($pass);
+
+    header("Location: login.php");
    } else {
     $errTyp = "danger";
     $errMSG_r = "Something went wrong, try again later..."; 
@@ -206,6 +232,22 @@ swal({
 $_SESSION['logout'] = 0;
 }
 
+
+if(isset($_SESSION['registered']) && $_SESSION['registered'] == 1) {
+?>
+<script>
+swal({
+  title: "Successfully registrered!",
+  text: "Everything is ready, you can login!",
+  type: "success",
+  showConfirmButton: false,
+  timer: 2000
+});
+</script>
+<?php
+$_SESSION['registered'] = 0;
+}
+
 ?>
 
 
@@ -216,13 +258,13 @@ Start of HTML code with some PHP -->
 
 <div class="LoginBox w3-row w3-display-middle w3-container">
 
-<div class='w3-col l5 w3-container w-45_'>
-<p class='web-login-title w3-center'>New Slayer</p>
+<div class='w3-col l5 w3-container w-45_' style="opacity: 1;">
+<p class='web-login-title w3-center'>New Slayer<p>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="NewSBox">
-<input type="text" class="w3-input w3-center w3-opacity w3-large" name="name" placeholder="Enter your Nickname..." /><i><span class='w3-panel w3-text-white'><?php echo $nameError; ?></span></i>
-<input type="email" class="w3-input w3-center w3-opacity w3-large mt-0p5_" name="email" placeholder="Enter your Email..." /><i><span class='w3-panel w3-text-white'><?php echo $emailError; ?></span></i>
-<input type="password" class="w3-input w3-center w3-opacity w3-large mt-0p5_" name="pass" placeholder="Enter your Password..." /><i><span class='w3-panel w3-text-white'><?php echo $passError; ?></span></i>
+<input type="text" class="w3-input w3-center w3-opacity fs-0p75vw" name="name" placeholder="Enter your Nickname..." /><i><span class='w3-panel w3-text-white'><?php echo $nameError; ?></span></i>
+<input type="email" class="w3-input w3-center w3-opacity fs-0p75vw mt-0p5_" name="email" placeholder="Enter your Email..." /><i><span class='w3-panel w3-text-white'><?php echo $emailError; ?></span></i>
+<input type="password" class="w3-input w3-center w3-opacity fs-0p75vw mt-0p5_" name="pass" placeholder="Enter your Password..." /><i><span class='w3-panel w3-text-white'><?php echo $passError; ?></span></i>
 
     <?php
     if ( isset($errMSG_r) ) {
@@ -234,18 +276,18 @@ Start of HTML code with some PHP -->
     }
     ?>
 
-<input type="submit" value="Join us!" name="Register" class="web-login-register-button w3-btn w3-white w3-opacity w3-round-xxlarge w3-xlarge w3-center" />
+<input type="submit" value="Join us!" name="Register" class="web-login-register-button w3-btn w3-white w3-opacity w3-round-xxlarge w3-center fs-0p9vw" />
 </form>
 </div>
 
 
 
-<div class='w3-right w3-col l5 w3-container w-45_'>
+<div class='w3-right w3-col l5 w3-container w-45_' style="opacity: 1;">
 <p class='web-login-title w3-center'>Returning Slayer</p>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" class="ReturnSBox">
-<input type="text" class="w3-input w3-center w3-opacity w3-large" placeholder="Enter your Username..." name="username" /><i><span class='w3-panel w3-text-white'><?php echo $userError; ?></span></i>
-<input type="password" class="w3-input w3-center w3-opacity w3-large mt-0p5_" placeholder="Enter your Password..." name="password" /><i><span class='w3-panel w3-text-white'><?php echo $passLogError; ?></span></i>
+<input type="text" class="w3-input w3-center w3-opacity fs-0p75vw" placeholder="Enter your Username..." name="username" /><i><span class='w3-panel w3-text-white'><?php echo $userError; ?></span></i>
+<input type="password" class="w3-input w3-center w3-opacity fs-0p75vw mt-0p5_" placeholder="Enter your Password..." name="password" /><i><span class='w3-panel w3-text-white'><?php echo $passLogError; ?></span></i>
 
     <?php
     if ( isset($errMSG) ) {
@@ -257,7 +299,7 @@ Start of HTML code with some PHP -->
     }
     ?>
 
-<input type="submit" value="Login!" name="Login" class="web-login-login-button w3-btn w3-white w3-opacity w3-round-xxlarge w3-xlarge w3-center" />
+<input type="submit" value="Login!" name="Login" class="web-login-login-button w3-btn w3-white w3-opacity w3-round-xxlarge fs-0p9vw w3-center" />
 </form>
 </div>
 

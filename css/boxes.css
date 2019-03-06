@@ -4,7 +4,7 @@
     background-image: url("../images/old_paper.png");
     background-size: cover;
     opacity: 0.9;
-    height: 70%;
+    height: 35vw;
     width: 60%;
     border: 5px solid black;
     border-radius: 5%;
@@ -35,44 +35,23 @@
     font-family: Passero One;
 }
 
-@media (min-width: 760px) {
+@media (max-width: 1366px) and (max-height: 769px) {
     .LoginBox {
-        background-image: url("../images/old_paper.png");
-        background-size: cover;
-        height: 80%;
-        width: 60%;
-        border: 3px solid black;
-        border-radius: 4%;
+        height: 90%;
+        width: 70%;
         margin-top: 2%;
-        padding-bottom: 5%;
-        font-family: Passero One;
     }
 }
 
-@media (min-width: 1330px) and (min-height: 750px) {
-    .LoginBox {
-        background-image: url("../images/old_paper.png");
-        background-size: cover;
-        height: 70%;
-        width: 60%;
-        border: 3px solid black;
-        border-radius: 4%;
-        margin-top: 2%;
-        font-family: Passero One;
-    }
-}
-
-@media (min-width: 1500px) and (min-height: 800px) {
-    .LoginBox {
-        background-image: url("../images/old_paper.png");
-        background-size: cover;
-        height: 60%;
-        width: 60%;
-        border: 3px solid black;
-        border-radius: 4%;
-        margin-top: 2%;
-        font-family: Passero One;
-    }
+.LoginBox {
+    background-image: url("../images/old_paper.png");
+    background-size: cover;
+    height: 55%;
+    width: 60%;
+    border: 3px solid black;
+    border-radius: 4%;
+    margin-top: 0;
+    font-family: Passero One;
 }
 
 .TavernBox {
@@ -85,6 +64,12 @@
     margin-left: 2%;
     margin-top: 5%;
     font-family: Oswald;
+}
+
+@media (max-width: 1366px) and (max-height: 769px) {
+    .TavernBox {
+        margin-top: 8%;
+    }
 }
 
 

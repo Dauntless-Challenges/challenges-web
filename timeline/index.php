@@ -66,10 +66,10 @@
 <hr class="divider" />
 
 <ul class="timeline">
-  <!-- Item 1 -->
-  <li>
-    <div class="direction-r">
 
+
+  <li>
+    <div class="direction-l">
       <div class="flag-wrapper" 
 		data-tippy="Current LATEST version" 
 		data-tippy-placement="left-start" 
@@ -77,7 +77,34 @@
 		data-tippy-arrow="true">
 
         <span class="hexa h-big"></span>
-        <span class="flag flag-big" id="current">#1.2.0</span>
+        <span class="flag flag-big" id="current">#1.3.0</span>
+        <span class="time-wrapper"><span class="time">6th of March, 2019</span></span>
+      </div>
+      <div class="desc">
+		    Registration & Patches &nbsp;<i class="fas fa-lg fa-screwdriver brand-text-blue"></i><br /><br />
+
+		    <span class="desc-update">
+		    - Extended Markdown files<br />
+		    - Design and Responsibility fixes<br />
+        - Server-side logic fixes<br />
+        <span class="desc-update-list">+ EXP<br /></span>
+		    - Enabled Registration<br />
+		    </span>
+        
+        <img src="images/Syraleaf.jpeg" class="avatar-small-l l-second hvr-wobble-vertical Syraleaf" alt="Syraleaf" />
+		    <img src="images/Melioo.jpg" class="avatar-small-l l-first hvr-wobble-vertical Melioo" alt="Melioo" />
+      </div>
+    </div>
+  </li>
+
+
+  <li>
+    <div class="direction-r">
+
+      <div class="flag-wrapper">
+
+        <span class="hexa"></span>
+        <span class="flag">#1.2.0</span>
         <span class="time-wrapper"><span class="time">24th of Feb, 2019</span></span>
       </div>
       <div class="desc">
@@ -98,7 +125,7 @@
     </div>
   </li>
 
-  <!-- Item 2 -->
+
   <li>
     <div class="direction-l">
       <div class="flag-wrapper">
@@ -120,7 +147,7 @@
     </div>
   </li>
 
-  <!-- Item 3 -->
+
   <li>
     <div class="direction-r">
       <div class="flag-wrapper"
@@ -150,7 +177,7 @@
     </div>
   </li>
 
-  <!-- Item 4 -->
+
   <li>
     <div class="direction-l">
       <div class="flag-wrapper">
@@ -177,7 +204,7 @@
     </div>
   </li>
 
-  <!-- Item 5 -->
+
   <li>
     <div class="direction-r">
       <div class="flag-wrapper">
@@ -199,7 +226,7 @@
     </div>
   </li>
 
-  <!-- Item 6 -->
+
   <li>
     <div class="direction-l">
       <div class="flag-wrapper">
@@ -228,7 +255,7 @@
     </div>
   </li>
 
-  <!-- Item 7 -->
+
   <li>
     <div class="direction-r">
       <div class="flag-wrapper">
@@ -248,7 +275,7 @@
     </div>
   </li>
 
-  <!-- Item 8 -->
+
   <li>
     <div class="direction-l">
       <div class="flag-wrapper">

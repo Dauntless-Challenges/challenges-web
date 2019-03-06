@@ -41,7 +41,7 @@ $sql = "SELECT * FROM `profiles` WHERE id_user=". $_SESSION['user'];
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-$sql = "SELECT * FROM userchallenges WHERE state=2 AND id_user=". $_SESSION['user'];
+$sql = "SELECT * FROM userchallenges WHERE state=2 AND id_user=". $row['id_user'];
 $res_ch = mysqli_query($conn, $sql);
 $count_ch = mysqli_num_rows($res_ch);
 
@@ -60,6 +60,8 @@ $ago = date_diff($date_now, $date_user);
 if($row['clanbg'] == 0) $clanBg = "background-color: #532d2d;";
 else $clanBg = "background-image: url('". getClanBg($row['clanbg']) ."');";
 
+if($row['color'] == 'none') $color = "color: black;";
+else $color = "color: ". getColor($row['id_user']) .";";
 
 // Start of HTML Code with PHP array variables from the Select Query
 
@@ -93,7 +95,7 @@ function ProfileStats() {
 		<img  class="w3-padding w-70_" id="badge" src="images/shield.png" alt="Shield">
 	</div>
 
-	<p class='ProfileName w3-padding w3-card-2 PasseroOne' style="color: <?php echo $row['color']; ?>;"><?php echo getUser($row['id_user']); ?> [<?php if($row['id_guild'] != 0) echo getGuild($row['id_guild']); else echo "No Guild"; ?>]</p>
+	<p class='ProfileName w3-padding w3-card-2 PasseroOne' style="<?php echo $color; ?>"><?php echo getUser($row['id_user']); ?> [<?php if($row['id_guild'] != 0) echo getGuild($row['id_guild']); else echo "No Guild"; ?>]</p>
 	<p class='ProfileTitle w3-padding w3-card-4 PasseroOne'><?php if($row['id_title'] == 0) echo "None"; else echo getTitle($row['id_title']); ?></p>
 
 	<p class="web-profile-tooltip w3-tooltip"><span class="web-profile-tooltip-popup brand-dark-blue w3-round-xxlarge w3-animate-opacity w3-padding w3-text w3-tag"><i>Since <?php echo date('F jS, Y \a\t h:mA', strtotime($row['date'])); ?></i></span>Member for <u><?php echo $ago->format("%m months and %d days"); ?></u></p>
@@ -107,8 +109,10 @@ function ProfileStats() {
 
 <div class="web-profile-badge w3-col l7" id="ProfileBadge" hidden>
 	<?php
-        $exp = ($row['exp'] / getBadgeEXP($row['id_badge']))*100;
-        echo "<span style='font-size: 1.25vw;'>Current EXP: &nbsp ". $row['exp'] ." / ". getBadgeEXP($row["id_badge"]) ." (". round($exp, 1) ."%)</span>";
+		$diffexp = (getBadgeEXP($row['id_badge']) - getBadgeEXP($row['id_badge']-1));
+		$lowerexp = ($row['exp'] - getBadgeEXP($row['id_badge']-1));
+		$exp = ($lowerexp / $diffexp)*100;
+        echo "<span class='fs-1p25vw'>Current EXP: &nbsp ". $row['exp'] ." / ". getBadgeEXP($row["id_badge"]) ." (". round($exp, 2) ."%)</span>";
     ?>
 	<div class="w3-opacity w3-border w3-border-black w3-round-xlarge">
         <div class="web-profile-badge-xp w3-container w3-round-xlarge" style="width:<?php echo $exp; ?>%;"></div>

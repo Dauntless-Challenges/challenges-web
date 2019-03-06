@@ -114,3 +114,19 @@
     margin-left: 5%;
     text-decoration: none;
 }
+
+.web-challenges-public-title {
+    font-size: 1.1vw;
+    margin: 15%;
+}
+
+.web-challenges-public-exp {
+    background-color: #570099;
+    height: 1.5rem;
+    max-width: 100%;
+}
+
+.web-challenges-public-div {
+    margin-top: 5%;
+    margin-left: 12%;
+}
