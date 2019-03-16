@@ -49,7 +49,7 @@ mysqli_close($conn);
 ?>
 
 <script>
-function SubmitChallenge(x, y, proof)
+function SubmitChallenge(x, y, proof, note)
 {
 swal({
   title: 'Challenge has been submitted!!',
@@ -58,6 +58,7 @@ swal({
   allowOutsideClick: true,
   showCloseButton: true,
   html: '<p style="margin-bottom: 10%; font-size: 1vw;">Proof:<br /><a class="w3-text-indigo" style="text-decoration: none;" href="' + proof + '" target="_blank">' + proof + '</a></p>' +
+    '<p style="margin-bottom: 10%; font-size: 1vw; white-space: pre-wrap;">Feedback:<br />' + note + '</p>' +
 		'<div class="w3-row"><div class="w3-half"><form action="submit-approve.php" method="post"><input type="hidden" name="user" value="' + y + '" /><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #006666;"><i class="fas fa-user-plus"></i>&nbsp; Accept!!</button></form></div>' +
 		'<div class="w3-half"><form action="submit-remove.php" method="post"><input type="hidden" name="user" value="' + y + '" /><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #d33;"><i class="fas fa-user-times"></i>&nbsp; Remove!!</button></form></div></div>'
 });

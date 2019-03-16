@@ -69,12 +69,21 @@ $exp = $challengeRow['r_exp'] + $profileRow['exp'];
 $money = $challengeRow['r_money'] + $profileRow['money'];
 $now = date("Y-m-d");
 
+
+
+if($exp >= $profileRow['exp']) {
+	$levelup = $profileRow['id_badge'] + 1;
+	$badge = ", id_badge='". $levelup ."'";
+} else $badge = " ";
+
+
+
 $conn = connect_db();
 
 $sql = "UPDATE userchallenges SET state=2, date_completed='". $now ."' WHERE id_challenge=". $id;
 $res_uch = mysqli_query($conn, $sql);
 
-$sql = "UPDATE profiles SET exp=". $exp .", money=". $money ." WHERE id_user=". $user;
+$sql = "UPDATE profiles SET exp=". $exp .", money=". $money ." ". $badge ." WHERE id_user=". $user;
 $res_p = mysqli_query($conn, $sql);
 
 if ($res_uch && $res_p) {

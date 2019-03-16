@@ -88,3 +88,38 @@ p.web-profile-search-error {
     font-size: 4vw;
     margin-top: 16%;
 }
+
+
+
+
+
+
+
+
+
+
+
+.web-progress-bar {
+    background-color: #808080;
+    border-radius: 1vw;
+    padding: 0.5%;
+}
+  
+.web-progress-bar>div {
+    background-color: #570099;
+    height: 1.5rem;
+    border-radius: 1vw;
+}
+
+
+.web-challenges-progress-bar {
+    background-color: #808080;
+    border-radius: 1vw;
+    padding: 1.25%;
+}
+
+.web-challenges-progress-bar>div {
+    background-color: #570099;
+    height: 1.5rem;
+    border-radius: 1vw;
+}

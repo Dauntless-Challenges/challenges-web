@@ -69,16 +69,43 @@
 
 
   <li>
-    <div class="direction-l">
+    <div class="direction-r">
+
       <div class="flag-wrapper" 
-		data-tippy="Current LATEST version" 
-		data-tippy-placement="left-start" 
-		data-tippy-distance="40" 
-		data-tippy-arrow="true">
+		    data-tippy="Current LATEST version" 
+		    data-tippy-placement="left-start" 
+		    data-tippy-distance="40" 
+		    data-tippy-arrow="true">
 
         <span class="hexa h-big"></span>
-        <span class="flag flag-big" id="current">#1.3.0</span>
-        <span class="time-wrapper"><span class="time">6th of March, 2019</span></span>
+        <span class="flag flag-big" id="current">#1.3.5</span>
+        <span class="time-wrapper"><span class="time">16th of Mar, 2019</span></span>
+      </div>
+      <div class="desc">
+	       Patch & Bug Fixes of #1.3.0 &nbsp;<i class="fas fa-lg fa-bug brand-text-dark-red"></i><br /><br />
+
+	       <span class="desc-update">
+	       - Challenges Logic fixes<br />
+		     - Registration fixes<br />
+         - EXP fixes<br />
+	       - Submissions patch improvement<br />
+	       - Tavern improvements
+         </span>
+
+	       <img src="images/Melioo.jpg" class="avatar-small-r hvr-wobble-vertical Melioo" alt="Melioo" />
+      </div>
+    </div>
+  </li>
+
+
+
+  <li>
+    <div class="direction-l">
+      <div class="flag-wrapper">
+
+        <span class="hexa"></span>
+        <span class="flag">#1.3.0</span>
+        <span class="time-wrapper"><span class="time">6th of Mar, 2019</span></span>
       </div>
       <div class="desc">
 		    Registration & Patches &nbsp;<i class="fas fa-lg fa-screwdriver brand-text-blue"></i><br /><br />
