@@ -61,22 +61,24 @@ $_SESSION['log'] = 0;
 // Start of HTML Code with Javascript function on Admin Features
 
 
+
+
 ?>
 
 <div class="w3-row mySlides">
 
-<div class="TavernBox w3-quarter w3-container fs-1p5vw w3-center">
+<div class="TavernBox w3-quarter w3-container fs-1p5vw">
 <p class='w3-center mb-0 PasseroOne fs-1p75vw'>Welcome <?php echo $userRow['name']; ?>!</p>
 
 <hr class="web-tavern-hr" />
 
-<div class="mb-10_"><a href="public-challenges.php" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-tasks"></i>&nbsp; Challenges</a><br /></div>
+<div class="mb-10_ ml-10_"><a href="public-challenges.php" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-tasks"></i>&nbsp; Challenges</a><br /></div>
 
-<div class="mb-10_"><a href="#" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-stopwatch"></i>&nbsp; Speedrunning UwU</a><br /></div>
+<div class="mb-10_ ml-10_"><a href="#" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-stopwatch"></i>&nbsp; Speedrunning UwU</a><br /></div>
 
-<div class="mb-10_"><a href="profile.php" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="far fa-user-circle"></i>&nbsp; Profile Page</a><br /></div>
+<div class="mb-10_ ml-10_"><a href="profile.php" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="far fa-user-circle"></i>&nbsp; Profile Page</a><br /></div>
 
-<div class="mb-5_"><a href="#" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-list-ol"></i>&nbsp; Leaderboard</a></div>
+<div class="mb-5_ ml-10_"><a href="#" class="web-tavern-box-button w3-transparent w3-round-large w3-text-black"><i class="fas fa-list-ol"></i>&nbsp; Leaderboard</a></div>
 </div>
 
 <div class="w3-col l4"><p> </p></div>

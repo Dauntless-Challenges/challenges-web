@@ -44,6 +44,19 @@ require_once 'inc.php';
 // ------------------------------
 
 
+// Start of Page with few functions
+
+html_head("Challenges Login");
+
+navbar('bgimg_login');
+HelpButton();
+
+pageFade();
+
+
+// ------------------------------
+
+
 // Registration PHP function
 
  $error = false;
@@ -110,7 +123,7 @@ require_once 'inc.php';
    
    $conn = connect_db();
 
-   $sql = "SELECT * FROM users";
+   $sql = "SELECT * FROM `users`";
    $res_id = mysqli_query($conn, $sql);
    $rowCount = mysqli_num_rows($res_id);
    $rowCount = $rowCount + 1;
@@ -123,21 +136,23 @@ require_once 'inc.php';
    $res_pi = mysqli_query($conn, $sql);
 
    mysqli_close($conn);
-  
 
-   // FIXME: Pop-up doesnt appear because condition doesnt run through
-   if($res_ui && $res_pi) {
-    $_SESSION['registered'] = 1;
-    
-    unset($name);
-    unset($email);
-    unset($pass);
+   
 
-    header("Location: login.php");
-   } else {
-    $errTyp = "danger";
-    $errMSG_r = "Something went wrong, try again later..."; 
-   }
+    if($res_pi && $res_ui) {
+      echo '
+      <script>
+      swal({
+        title: "Successfully Registered!!",
+        text: "You may login now!",
+        type: "success",
+        showConfirmButton: false,
+       timer: 1990
+      });
+      </script>';
+
+      echo "<meta http-equiv='refresh' content='2; url=login.php'>";
+    } else $errMSG_r = "Something went wrong, try again later...";
  }
  
  }
@@ -197,21 +212,6 @@ require_once 'inc.php';
  }
 
 
-
-
- // ------------------------------
-
-
-// Start of Page with few functions
-
-html_head("Challenges Login");
-
-navbar('bgimg_login');
-HelpButton();
-
-pageFade();
-
-
 // ------------------------------
 
 
@@ -232,21 +232,6 @@ swal({
 $_SESSION['logout'] = 0;
 }
 
-
-if(isset($_SESSION['registered']) && $_SESSION['registered'] == 1) {
-?>
-<script>
-swal({
-  title: "Successfully registrered!",
-  text: "Everything is ready, you can login!",
-  type: "success",
-  showConfirmButton: false,
-  timer: 2000
-});
-</script>
-<?php
-$_SESSION['registered'] = 0;
-}
 
 ?>
 

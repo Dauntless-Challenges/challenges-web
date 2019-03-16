@@ -121,8 +121,11 @@ function ProfileStats() {
 <div class="web-profile-badge w3-col l7" id="ProfileBadge" hidden>
 	<?php
 	if(getUserPerm($row['id_user']) == 0) {
-        $diffexp = (getBadgeEXP($row['id_badge']) - getBadgeEXP($row['id_badge']-1));
-		$lowerexp = ($row['exp'] - getBadgeEXP($row['id_badge']-1));
+        if($row['id_badge'] == 1) $lowerbadgeEXP = 0;
+		else $lowerbadgeEXP = getBadgeEXP($row['id_badge']-1);
+
+		$diffexp = (getBadgeEXP($row['id_badge']) - $lowerbadgeEXP);
+		$lowerexp = ($row['exp'] - $lowerbadgeEXP);
 		$exp = ($lowerexp / $diffexp)*100;
         echo "<span class='fs-1p25vw'>Current EXP: &nbsp ". $row['exp'] ." / ". getBadgeEXP($row["id_badge"]) ." (". round($exp, 1) ."%)</span>";
 	} else echo "<span class='fs-1p25vw'>Current EXP: &nbsp A lot</span>";
@@ -151,7 +154,7 @@ function ProfileStats() {
 <div class="web-profile-stats w3-col l7" id="ProfileStats" hidden>
 <div class="w3-row">
 <div class="w3-half">
-    <p>Most Recent Challenge: &nbsp; <span class="fs-1p75vw"><br /><?php echo getChallenge($row['id_challenge']); ?></span></p>
+    <p>Finest Challenge: &nbsp; <span class="fs-1p75vw"><br /><?php echo getChallenge($row['id_challenge']); ?></span></p>
     <p class="mt-5_">Completed Challenges: &nbsp; <span class="fs-1p75vw"><?php echo $count_ch; ?></span></p>
     <p>Speedruns on Board: &nbsp; <span class="fs-1p75vw"><?php echo $row['sp_board']; ?></span></p>
 </div>

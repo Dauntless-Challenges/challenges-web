@@ -549,7 +549,7 @@ function ChallengeButton($challengesRow, $type) {
 
 
 	$conn = connect_db();
-	$sql = 'SELECT * FROM userchallenges WHERE id_challenge='. $challengesRow['id_challenge'];
+	$sql = 'SELECT * FROM userchallenges WHERE id_user= '. $_SESSION['user'] .' AND id_challenge='. $challengesRow['id_challenge'];
 	$res = mysqli_query($conn, $sql);
 	$userChallengesRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 	mysqli_close($conn);
@@ -604,9 +604,10 @@ function SubmitChallengeButton($challengesRow) {
 	if($difficulty == 3) $color = "diff_hard";
 	if($difficulty == 4) $color = "diff_hard_plus";
 	
-	echo '
-	<button class="w3-btn w3-card-2 hvr-hang '. $color .' w3-quarter w3-round-xxlarge w3-center Oswald m-2_" value="'. $challengesRow['proof'] .'" onClick="SubmitChallenge('. $challengesRow['id_challenge'] .', '. $challengesRow['id_user'] .', this.value)">
-		<p class="web-challenges-name PasseroOne">Challenge '. getChallenge($challengesRow['id_challenge']) .' by <u>'. getUser($challengesRow['id_user']) .'</u></p>
+
+	?><button class="w3-btn w3-card-2 hvr-hang <?php echo $color; ?> w3-quarter w3-round-xxlarge w3-center Oswald m-2_" value="<?php echo htmlspecialchars($challengesRow['note']); ?>" onClick="SubmitChallenge(<?php echo $challengesRow['id_challenge']; ?>, <?php echo $challengesRow['id_user']; ?>, '<?php echo $challengesRow['proof']; ?>', this.value)"><?php
+    echo '
+        <p class="web-challenges-name PasseroOne">Challenge '. getChallenge($challengesRow['id_challenge']) .' by <u>'. getUser($challengesRow['id_user']) .'</u></p>
 		<hr class="web-challenges-hr-1 w3-border-light-grey" />
 		<p class="fs-0p9vw">Started: '. date('F jS, Y \a\t h:mA', strtotime($challengesRow['date_started'])) .'</p>
 		<hr class="web-challenges-hr-2 w3-border-light-grey" />

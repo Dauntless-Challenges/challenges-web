@@ -31,9 +31,10 @@ pageFade();
 
 
 if( isset($_POST['ProfileEdit']) ) {
-$conn = connect_db();
 
-	$sql = "UPDATE `profiles` SET id_title='". $_POST['title'] ."', color='". $_POST['color'] ."', clanbg='". $_POST['clanbg'] ."', id_weapon='". $_POST['weapon'] ."', id_guild='". $_POST['guild'] ."', id_challenge='". $_POST['challenge'] ."' WHERE id_user=". $_POST['id'];
+	$conn = connect_db();
+
+	$sql = "UPDATE profiles SET id_title=". $_POST['title'] .", color='". $_POST['color'] ."', clanbg='". $_POST['clanbg'] ."', id_weapon=". $_POST['weapon'] .", id_guild=". $_POST['guild'] .", id_challenge=". $_POST['challenge'] .", public=". $_POST['visibility'] .", note='". mysqli_real_escape_string($conn, $_POST['note']) ."' WHERE id_user=". $_POST['id'];
 	$res = mysqli_query($conn, $sql);
 
 	if ($res) {
@@ -221,14 +222,14 @@ else $clanBg = "background-image: url('". getClanBg($row_p['clanbg']) ."');";
 		<div class="w3-col l4 mt-5_">
 		<div class="web-profile-edit-column">
 
-		<label class="w3-opacity-min" for="public">Choose your Visibility:</label>
-		<select class="w3-select w3-center w3-transparent w3-border-black select-noarrow" name="challenge" id="challenge">
+		<label class="w3-opacity-min" for="visibility">Choose your Visibility:</label>
+		<select class="w3-select w3-center w3-transparent w3-border-black select-noarrow" name="visibility" id="visibility">
 			<option value="0" <?php if($row_p['public'] == 0) echo "selected"; ?>>Hidden</option>
 			<option value="1" <?php if($row_p['public'] == 1) echo "selected"; ?>>Public</option>
 		</select>
 
 		<div class="mt-15_">
-		<label class="w3-opacity-min" for="guild">Set your BIO:</label>
+		<label class="w3-opacity-min" for="note">Set your BIO:</label>
 		<textarea class="web-profile-edit-note w3-transparent w3-border-0 w3-leftbar w3-border-black" name="note" id="note" maxlength="255"><?php echo htmlspecialchars($row_p['note']); ?></textarea>
 		</div>
 

@@ -39,7 +39,7 @@ $sql = "SELECT * FROM challenges WHERE id_challenge=". $id;
 $res = mysqli_query($conn, $sql);
 $challengeRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
-$sql = "SELECT * FROM userchallenges WHERE id_challenge=". $id;
+$sql = "SELECT * FROM userchallenges WHERE id_user=". $_SESSION['user'] ."id_challenge=". $id;
 $res = mysqli_query($conn, $sql);
 $userChallengeRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 $noteValue = 255 - strlen($userChallengeRow['note']);
@@ -77,7 +77,7 @@ if ($res) {
 	<script>
 	swal({
 	title: "Successfully submitted!!",
-	text: "Challenge has been submitted to Overseers without any problem!",
+	text: "Challenge has successfully been submitted and will be reviewed as soon as possible!",
 	type: "success",
 	showConfirmButton: false,
 	timer: 1990

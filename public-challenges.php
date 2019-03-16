@@ -43,7 +43,6 @@ $conn = connect_db();
 
 mysqli_close($conn);
 
-
 ?>
 
 
@@ -97,14 +96,21 @@ swal({
 	<p class="web-challenges-public-title animation-target w3-border-bottom w3-border-black w3-center">ACTIVE CHALLENGES</p>
 
 	<?php
-        $diffexp = (getBadgeEXP($profileRow['id_badge']) - getBadgeEXP($profileRow['id_badge']-1));
-				$lowerexp = ($profileRow['exp'] - getBadgeEXP($profileRow['id_badge']-1));
+        if($profileRow['id_badge'] == 1) $lowerbadgeEXP = 0;
+				else $lowerbadgeEXP = getBadgeEXP($profileRow['id_badge']-1);
+		
+				$diffexp = (getBadgeEXP($profileRow['id_badge']) - $lowerbadgeEXP);
+				$lowerexp = ($profileRow['exp'] - $lowerbadgeEXP);
 				$exp = ($lowerexp / $diffexp)*100;
         echo "<span class='fs-1vw'>Current EXP: &nbsp ". $profileRow['exp'] ." / ". getBadgeEXP($profileRow["id_badge"]) ." (". round($exp, 2) ."%)</span>";
     ?>
-	<div class="w3-ligh-grey w3-border w3-border-black w3-round-xlarge">
+		<!--<div class="w3-ligh-grey w3-border w3-border-black w3-round-xlarge">
         <div class="web-challenges-public-exp w3-container w3-round-xlarge" style="width:<?php echo $exp; ?>%;"></div>
-    </div>
+    </div>-->
+
+		<div class="web-challenges-progress-bar">
+  		<div style="width:<?php echo $exp; ?>%;"></div>
+		</div>
   </div>
 </div>
 
@@ -120,7 +126,7 @@ swal({
 	      if(($date_end > $date_now) && ($date_start < $date_now)) {
 		  
 		  $conn = connect_db();
-		  $sql = "SELECT * FROM `userchallenges` WHERE id_challenge=". $challengesRow['id_challenge'];
+		  $sql = "SELECT * FROM `userchallenges` WHERE id_user=". $_SESSION['user'] ." AND id_challenge=". $challengesRow['id_challenge'];
 		  $result_uch = mysqli_query($conn, $sql);
 		  $userchallengesCount = mysqli_num_rows($result_uch);
 		  mysqli_close($conn);
@@ -145,14 +151,22 @@ swal({
 	<p class="web-challenges-public-title animation-target w3-border-bottom w3-border-black w3-center">TAKEN CHALLENGES</p>
 
 	<?php
-        $diffexp = (getBadgeEXP($profileRow['id_badge']) - getBadgeEXP($profileRow['id_badge']-1));
-				$lowerexp = ($profileRow['exp'] - getBadgeEXP($profileRow['id_badge']-1));
+        if($profileRow['id_badge'] == 1) $lowerbadgeEXP = 0;
+				else $lowerbadgeEXP = getBadgeEXP($profileRow['id_badge']-1);
+		
+				$diffexp = (getBadgeEXP($profileRow['id_badge']) - $lowerbadgeEXP);
+				$lowerexp = ($profileRow['exp'] - $lowerbadgeEXP);
 				$exp = ($lowerexp / $diffexp)*100;
         echo "<span class='fs-1vw'>Current EXP: &nbsp ". $profileRow['exp'] ." / ". getBadgeEXP($profileRow["id_badge"]) ." (". round($exp, 2) ."%)</span>";
     ?>
-	<div class="w3-ligh-grey w3-border w3-border-black w3-round-xlarge">
+		
+		<!--<div class="w3-ligh-grey w3-border w3-border-black w3-round-xlarge">
         <div class="web-challenges-public-exp w3-container w3-round-xlarge" style="width:<?php echo $exp; ?>%;"></div>
-    </div>
+    </div>-->
+
+		<div class="web-challenges-progress-bar">
+  		<div style="width:<?php echo $exp; ?>%;"></div>
+		</div>
   </div>
 </div>
 
@@ -167,7 +181,7 @@ swal({
 	      if(($date_end > $date_now) && ($date_start < $date_now)) {
 		  
 		  $conn = connect_db();
-		  $sql = "SELECT * FROM `userchallenges` WHERE state<>2 AND id_challenge=". $challengesRow['id_challenge'];
+		  $sql = "SELECT * FROM `userchallenges` WHERE state<>2 AND id_user=". $_SESSION['user'] ." AND id_challenge=". $challengesRow['id_challenge'];
 		  $result_uch = mysqli_query($conn, $sql);
 		  $userchallengesCount = mysqli_num_rows($result_uch);
 		  mysqli_close($conn);

@@ -8,7 +8,7 @@ function Highlight(name, color) {
 
     for (var i = 0; i < img.length; i++) {
         if (img[i].style.border != border) {
-            parent.style.boxShadow = "4px 4px 4px 0px rgba(0,0,0,0.3)";
+            parent.style.boxShadow = "2px 2px 16px 4px rgba(0,0,0,0.5)";
             parent.style.transition = "box-shadow 100ms linear";
 
             img[i].style.border = border;
