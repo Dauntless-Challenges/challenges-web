@@ -14,6 +14,23 @@
     right: 8%;
 }
 
+.web-profile-stats-tooltip-popup {
+    font-size: 1vw;
+    position: absolute;
+    bottom: 100%;
+    left: 1%;
+}
+
+@media only screen and (max-height: 768px) {
+
+    .web-profile-tooltip-popup {
+        font-size: 1vw;
+        right: 5%;
+    }
+
+}
+
+
 .web-profile-note-desc {
     font-size: 1.5vw;
     word-break: break;

@@ -140,8 +140,14 @@ function ProfileStats() {
 <div class="web-profile-stats w3-col l7" id="ProfileStats" hidden>
 <div class="w3-row">
 <div class="w3-half">
-    <p>Finest Challenge: &nbsp; <span class="fs-1p75vw"><br /><?php echo getChallenge($row['id_challenge']); ?></span></p>
-    <p class="mt-5_">Completed Challenges: &nbsp; <span class="fs-1p75vw"><?php echo $count_ch; ?></span></p>
+	
+	<p class="w3-tooltip">
+		<span class="web-profile-stats-tooltip-popup w3-animate-opacity w3-left w3-padding w3-text w3-tag brand-dark-blue w3-round-xxlarge">
+			Challenge you are proud of
+		</span>
+	Finest Challenge: &nbsp; <span class="fs-1p75vw"><br /><?php echo getChallenge($row['id_challenge']); ?></span></p>
+	
+	<p class="mt-5_">Completed Challenges: &nbsp; <span class="fs-1p75vw"><?php echo $count_ch; ?></span></p>
     <p>Speedruns on Board: &nbsp; <span class="fs-1p75vw"><?php echo $row['sp_board']; ?></span></p>
 </div>
 

@@ -55,7 +55,7 @@ HelpButton();
 	<div class="w3-half w3-text-light-grey mb-2_">
 	<div class="web-about-card w3-row w3-card-4 w3-pink w3-border w3-border-black hvr-wobble-horizontal">
 	  <div class="w3-third">
-	    <img src="https://i.imgur.com/udo32QT.png" class="web-about-image">
+	    <img src="images/Gabriel.png" class="web-about-image">
 	  </div>
 
 	  <div class="w3-twothird w3-right pr-10_">
@@ -69,7 +69,7 @@ HelpButton();
 	<div class="w3-half w3-text-light-grey mb-2_">
 	<div class="web-about-card w3-row w3-card-4 w3-green w3-border w3-border-black hvr-skew">
 	  <div class="w3-third">
-	    <img src="https://data.whicdn.com/images/21333057/large.jpg" class="web-about-image">
+	    <img src="images/Riddle.jpg" class="web-about-image">
 	  </div>
 
 	  <div class="w3-twothird w3-right pr-10_">

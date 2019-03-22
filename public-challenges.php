@@ -49,7 +49,7 @@ mysqli_close($conn);
 
 
 <script>
-function GetChallenge(x)
+function GetChallenge(x, desc)
 {
 swal({
   title: 'Challenge accepted?',
@@ -58,12 +58,12 @@ swal({
   showConfirmButton: false,
   allowOutsideClick: true,
   showCloseButton: true,
-  html: '<p class="w3-margin-bottom">Rather submit your impressive run or abandon the Challenge with shame on your back xD</p>' +
+  html: '<p class="w3-margin-bottom"><span class="fs-1vw">Description:</span><br />' + desc + '</p>' +
 		'<div class="w3-center"><form action="userchallenge-assign.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #007acc;"><i class="fas fa-chess-rook"></i>&nbsp; I am in!</button></form></div>'
 });
 }
 
-function EditChallenge(x, y)
+function EditChallenge(x, y, desc)
 {
 if(y == 1) y = "Re-Submit!!";
 else y = "Submit!!";
@@ -74,7 +74,7 @@ swal({
   showConfirmButton: false,
   allowOutsideClick: true,
   showCloseButton: true,
-  html: '<p class="w3-margin-bottom">Rather submit your impressive run or abandon the Challenge with shame on your back xD</p>' +
+  html: '<p class="w3-margin-bottom"><span class="fs-1vw">Description:</span><br />' + desc + '</p>' +
 		'<div class="w3-row"><div class="w3-half"><form action="userchallenge-submit.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #006666;"><i class="far fa-calendar-alt"></i>&nbsp; ' + y + '</button></form></div>' +
 		'<div class="w3-half"><form action="userchallenge-remove.php" method="post"><button class="w3-btn w3-large w3-padding-large w3-round-large w3-text-white" name="challenge" value="' + x + '" style="background-color: #d33;"><i class="far fa-calendar-minus"></i>&nbsp; Abandon!!</button></form></div></div>'
 });
@@ -93,7 +93,7 @@ swal({
 
 <div class="w3-display-middle Oswald" style="margin-top: -16%;">
   <div>
-	<p class="web-challenges-public-title animation-target w3-border-bottom w3-border-black w3-center">ACTIVE CHALLENGES</p>
+	<p class="web-challenges-public-title animation-target w3-border-bottom w3-border-black w3-center">AVAILABLE CHALLENGES</p>
 
 	<?php
         if($profileRow['id_badge'] == 1) $lowerbadgeEXP = 0;

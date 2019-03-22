@@ -82,6 +82,14 @@ $(document).mouseup(function(e)
 <a href="https://github.com/Dauntless-Challenges" class="web-help-github w3-display-bottomleft fab fa-github w3-text-white" target="_blank"></a>
 
 END;
+
+if(isset($_SESSION['user']) && getUserPerm($_SESSION['user']) == 1) {
+    echo '
+    <div class="web-help-admin w3-display-bottommiddle brand-warning w3-round-large w3-text-white hvr-grow-rotate">
+        <p class="w3-padding-small Oswald"><i class="fas fa-lg fa-exclamation-circle"></i>&nbsp; You are on Admin account!</p>
+    </div>
+    ';
+}
 }
 
 
@@ -94,9 +102,9 @@ function WIP() {
 echo <<<END
 
 <div class='w3-display-middle w3-text-white Oswald'>
-<p class='w3-jumbo animation-target'>COMING SOON</p>
+<p class='fs-3vw animation-target'>COMING SOON</p>
 <hr class="web-wip-hr w3-border-white">
-<p class='w3-xxxlarge w3-center'>Few days left!</p>
+<p class='fs-2vw w3-center'>Few days left!</p>
 </div>
 
 END;
@@ -347,7 +355,7 @@ Slayers have taken it upon themselves to create their own challenges. Proving th
 
 <br /><p><i>"You, dear slayer, look ready for such a challenge. I can see it in your eyes. The flames, the willpower. Yes, you are exactly the kind to rise to the top. Now, have a look, pick a challenge, show us your skills..."</i></p>
 
-<img class="web-landing-image" src="https://gamepedia.cursecdn.com/dauntless_gamepedia_en/thumb/f/fe/Gregario_Flynt_Render_001.png/1200px-Gregario_Flynt_Render_001.png" alt="Stranger" width="8%" />
+<img class="web-landing-image" src="images/landingGuy.png" alt="Stranger" width="8%" />
 
 <div id="badge">
 <a href="login.php" class="text-deco-none">
@@ -528,8 +536,8 @@ function ChallengeButton($challengesRow, $type) {
 	if($challengesRow['id_difficulty'] == 3) $color = "diff_hard";
 	if($challengesRow['id_difficulty'] == 4) $color = "diff_hard_plus";
 
-	if($type == "edit") $popup = 'onClick="EditChallenge(this.value, 0)"';
-	else if($type == "get") $popup = 'onClick="GetChallenge(this.value)"';
+	if($type == "edit") $popup = 'onClick="EditChallenge('. $challengesRow['id_challenge'] .', 0, this.value)"';
+	else if($type == "get") $popup = 'onClick="GetChallenge('. $challengesRow['id_challenge'] .', this.value)"';
 	else $popup = "";
 
 	$date_end = date_create(date('Y-m-d H:i:s', strtotime($challengesRow['date_end'])));
@@ -553,9 +561,9 @@ function ChallengeButton($challengesRow, $type) {
 	$res = mysqli_query($conn, $sql);
 	$userChallengesRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 	mysqli_close($conn);
-	if($userChallengesRow['state'] == 1) {
+	if($userChallengesRow['state'] == 1 && $type == "edit") {
 		$submit = '<span class="w3-text-green fs-1vw">| Submitted &nbsp; <span class="fa fa-check"></span></span>';
-		$popup = 'onClick="EditChallenge(this.value, 1)"';
+		$popup = 'onClick="EditChallenge('. $challengesRow['id_challenge'] .', 1, this.value)"';
 	}
 	else $submit = '';
 	
@@ -563,7 +571,7 @@ function ChallengeButton($challengesRow, $type) {
 		echo '<form method="post" action="challenges-edit.php" id="Challenge">
 			  <input type="hidden" name="id" value="'. $challengesRow['id_challenge'] .'" />';
 	echo '
-	<button class="w3-btn w3-card-2 hvr-hang w3-quarter '. $color .' w3-round-xxlarge w3-center Oswald m-2_" value="'. $challengesRow['id_challenge'] .'" '. $popup .'>
+	<button class="w3-btn w3-card-2 hvr-hang w3-quarter '. $color .' w3-round-xxlarge w3-center Oswald m-2_" value="'. $challengesRow['description'] .'" '. $popup .'>
 		<p class="web-challenges-name PasseroOne">--| '. $challengesRow['name'] .' |--</p>
 		<hr class="w3-border-light-grey" style="margin: auto; width: 90%;" />
 		<div class="w3-row w3-center" style="font-size: 1.1vw;">
@@ -589,7 +597,7 @@ function ChallengeButton($challengesRow, $type) {
 		<hr class="web-challenges-hr-1 w3-border-light-grey" />
 		<p class="fs-0p9vw">'. $ending .' '. $end->format("%m months and %d days") .' '. $when .' '. $submit .'</p>
 		<hr class="web-challenges-hr-1 w3-border-light-grey" />
-		<i class="web-challenges-desc">- '. $challengesRow['description'] .'</i>
+		<i class="web-challenges-desc">- Click to see the description...</i>
 	</button>
 	';
 	if($type == "form") echo '</form>';
@@ -611,7 +619,7 @@ function SubmitChallengeButton($challengesRow) {
 		<hr class="web-challenges-hr-1 w3-border-light-grey" />
 		<p class="fs-0p9vw">Started: '. date('F jS, Y \a\t h:mA', strtotime($challengesRow['date_started'])) .'</p>
 		<hr class="web-challenges-hr-2 w3-border-light-grey" />
-		<i class="web-challenges-desc">- '. $challengesRow['note'] .'</i>
+		<i class="web-challenges-desc">- Click to see the proof</i>
 	</button>
 	';
 }
@@ -639,7 +647,7 @@ echo <<<END
         <link rel="stylesheet" href="css/w3.css"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-        <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
 	    <link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/hover.css">
@@ -744,7 +752,7 @@ echo "<body class=". $body_class .">";
 <div class="w3-row web-bar brand-dark-blue w3-card-4">
 
 <!-- HOME -->
- <div class='web-bar-home brand-light-blue w3-xlarge w3-bar-item w3-hide-small Sedgwick' style="width: 12vw;">
+ <div class='web-bar-home brand-light-blue w3-xlarge w3-bar-item w3-hide-small Sniglet' style="width: 12vw;">
   <a class="text-deco-none" href="index.php"><p class="web-bar-title">Dauntless<br />Challenges</p></a>
  </div>
 
@@ -773,7 +781,7 @@ echo "<body class=". $body_class .">";
 <span class="web-bar-divider w3-bar-item w3-border-left"> </span>
 
 <form method="get" action="public-profile.php">
-<input type="text" class="web-search-bar w3-bar-item w3-input w3-large Oswald w3-transparent w3-text-white" name="public-user" placeholder="Search for Player..." id="Search">
+<input type="text" class="web-search-bar w3-bar-item w3-input w3-large Oswald w3-transparent w3-text-white" name="public-user" placeholder="Search for a Player..." id="Search">
 </form>
 
  <?php 
@@ -809,7 +817,7 @@ $conn = connect_db();
 
 ?>
 
-<div class="web-bar-money w3-bar-item w3-row PasseroOne" style="width: 10%;">
+<div class="web-bar-money w3-bar-item w3-row Sniglet" style="width: 10%;">
 	<image src="images/CT.png" class="w3-quarter hvr-bounce-in w-25_" />
 	<p class="w3-quarter web-bar-money-text"><?php echo $profileRow['money']; ?></p>
 </div>

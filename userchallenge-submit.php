@@ -39,7 +39,7 @@ $sql = "SELECT * FROM challenges WHERE id_challenge=". $id;
 $res = mysqli_query($conn, $sql);
 $challengeRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
-$sql = "SELECT * FROM userchallenges WHERE id_user=". $_SESSION['user'] ."id_challenge=". $id;
+$sql = "SELECT * FROM userchallenges WHERE id_user=". $_SESSION['user'] ." AND id_challenge=". $id;
 $res = mysqli_query($conn, $sql);
 $userChallengeRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 $noteValue = 255 - strlen($userChallengeRow['note']);

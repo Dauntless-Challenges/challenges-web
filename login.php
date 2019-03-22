@@ -200,7 +200,6 @@ pageFade();
     $_SESSION['user'] = $row['id_user'];
     $_SESSION['password'] = $password;
     $_SESSION['log'] = 1;
-    header("Location: tavern.php");
     echo "<meta http-equiv='refresh' content='0; url=tavern.php'>";
    } else {
    $errMSG = "Wrong user creditials...";
@@ -288,9 +287,6 @@ Start of HTML code with some PHP -->
 </form>
 </div>
 
-
-
-<!-- <img class="Badge" style="position: absolute; left: 40%; right: 40%; bottom: -1%;" src="images/badge.png" alt="Badge" width="20%" id="badge" /> -->
 </div>
 
 
