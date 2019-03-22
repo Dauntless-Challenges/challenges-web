@@ -84,14 +84,12 @@
 }
 
 .ReturnSBox {
-    background-image: url("../images/loginBox.jpg");
+    background-image: url("../images/loginBox2.jpg");
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     border: 5px solid black;
     border-radius: 5%;
-    margin-top: 3%;
     padding: 10% 5% 10% 5%;
 }
 

@@ -36,6 +36,14 @@
     position: fixed;
 }
 
+.web-help-admin {
+    margin-bottom: 1.5%;
+    font-size: 0.75vw;
+    margin-left: -4.5vw;
+    cursor: pointer;
+    z-index: 10;
+}
+
 
 
 /* ------------------------------ */
@@ -213,12 +221,12 @@ p.web-login-title {
    font-family: "Oswald";
 }
 
-.Sedgwick {
-   font-family: "Sedgwick Ave Display";
-}
-
 .PasseroOne {
     font-family: "Passero One";
+}
+
+.Sniglet {
+    font-family: "Sniglet";
 }
 
 

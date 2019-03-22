@@ -72,7 +72,7 @@
 }
 
 .bgimg_public_profile {
-    background-image: url('https://www.atlgn.com/wp-content/uploads/2018/08/DAUNTLESS-3.jpg');
+    background-image: url('../images/public_profile.jpg');
     min-height: 100%;
     background-attachment: fixed;
     background-position: center;

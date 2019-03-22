@@ -5,11 +5,15 @@
 }
 
 .brand-light-blue {
-    background: #267191;
+    background-color: #267191;
 }
 
 .brand-red {
-    background: #aa0909;
+    background-color: #aa0909;
+}
+
+.brand-warning {
+    background-color: #FE840E;
 }
 
 

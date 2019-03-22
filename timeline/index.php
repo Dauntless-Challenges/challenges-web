@@ -68,9 +68,9 @@
 <ul class="timeline">
 
 
-  <li>
-    <div class="direction-r">
 
+<li>
+    <div class="direction-l">
       <div class="flag-wrapper" 
 		    data-tippy="Current LATEST version" 
 		    data-tippy-placement="left-start" 
@@ -78,7 +78,34 @@
 		    data-tippy-arrow="true">
 
         <span class="hexa h-big"></span>
-        <span class="flag flag-big" id="current">#1.3.5</span>
+        <span class="flag flag-big" id="current">#1.3.8</span>
+        <span class="time-wrapper"><span class="time">22nd of Mar, 2019</span></span>
+      </div>
+      <div class="desc">
+		    Additional Patches of #1.3.0 &nbsp;<i class="fas fa-lg fa-bug brand-text-dark-red"></i><br /><br />
+
+		    <span class="desc-update">
+		    - Extended Challenges logics<br />
+        - Changed font from Sedgwick to Sniglet<br />
+        - Added tooltip for FInest Challenge<br />
+        - CSS review and refactorized<br />
+        - Performance fixes<br />
+        - Minor Bugs fixed
+		    </span>
+        
+		    <img src="images/Melioo.jpg" class="avatar-small-l hvr-wobble-vertical Melioo" alt="Melioo" />
+      </div>
+    </div>
+  </li>
+
+
+  <li>
+    <div class="direction-r">
+
+      <div class="flag-wrapper">
+
+        <span class="hexa h-small"></span>
+        <span class="flag flag-small">#1.3.5</span>
         <span class="time-wrapper"><span class="time">16th of Mar, 2019</span></span>
       </div>
       <div class="desc">
